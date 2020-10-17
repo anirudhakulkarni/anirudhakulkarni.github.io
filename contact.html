@@ -17,10 +17,15 @@ Author URL: http://w3layouts.com
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
-
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>
 </head>
 
-<body style="background-color:black;>
+<body style="background-color:black;">
 <!-- header -->
 <header>
   <div class="w3l-header" id="home">
@@ -70,7 +75,7 @@ Author URL: http://w3layouts.com
 					<a href="#twitter" class="editContent"style="color:  rgb(119, 0, 255)">twitter</a>
 					or <a href="#linkedin" class="editContent"style="color:  rgb(119, 0, 255)">linkedin</a>.</h3>
 			</div>
-			<form action="https://sendmail.w3layouts.com/submitForm" method="post" class="">
+			<form id="demo-form" action="https://formspree.io/f/maylezre" method="post" >
 				<div class="main-input">
 					<input type="text" name="w3lName" placeholder="Enter your name" class="contact-input" required="" />
 					<input type="email" name="w3lSender" placeholder="Enter your mail" class="contact-input" required="" />
@@ -78,7 +83,9 @@ Author URL: http://w3layouts.com
 					<textarea class="contact-textarea contact-input" name="w3lMessage" placeholder="Enter your message" required=""></textarea>
 				</div>
 				<div class="text-right">
-					<button class="btn-primary btn btn-style">Send</button>
+          <button class="g-recaptcha btn-primary btn btn-style" data-sitekey="6Lf0m64ZAAAAAOYQbo_FYne1mMO70KgWBBD5k-px" 
+          data-callback='onSubmit' 
+          data-action='submit'>Send</button>
 				</div>
 			</form>
 		</div>
@@ -94,7 +101,7 @@ Author URL: http://w3layouts.com
         <div class="footer-content">
           <div class="row">
             <div class="col-lg-8 footer-left">
-              <p class="m-0">&copy; 2020 <a href="https://github.com/anirudhakulkarni">Anirudha Kulkarni</a> | All Rights Reserved | Design by <a href="https://w3layouts.com">W3layouts</a></p>
+              <p class="m-0">&copy; 2020 <a href="https://github.com/anirudhakulkarni">Anirudha Kulkarni</a> | All Rights Reserved | Framework by <a href="https://w3layouts.com">W3layouts</a></p>
             </div>
             <div class="col-lg-4 footer-right text-lg-right text-center mt-lg-0 mt-3">
               <ul class="social m-0 p-0">
