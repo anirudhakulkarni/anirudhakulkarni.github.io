@@ -18,7 +18,11 @@ Author URL: http://w3layouts.com
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
   <script src="https://www.google.com/recaptcha/api.js"></script>
-
+  <script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>
 </head>
 
 <body style="background-color:black;">
@@ -73,13 +77,13 @@ Author URL: http://w3layouts.com
 			</div>
 			<form id="demo-form" action="https://formspree.io/f/maylezre" method="post" >
 				<div class="main-input">
-					<input type="text" name="Name" placeholder="Enter your name" class="contact-input" required />
-					<input type="email" name="Sender" placeholder="Enter your mail" class="contact-input" required />
-					<input type="text" name="Subject" placeholder="Subject" class="contact-input" required />
-					<textarea class="contact-textarea contact-input" name="Message" placeholder="Enter your message" required></textarea>
+					<input type="text" name="Name" placeholder="Enter your name" class="contact-input" required="" />
+					<input type="email" name="Sender" placeholder="Enter your mail" class="contact-input" required="" />
+					<input type="text" name="Subject" placeholder="Subject" class="contact-input" />
+					<textarea class="contact-textarea contact-input" name="Message" placeholder="Enter your message" required=""></textarea>
 				</div>
 				<div class="text-right">
-          <button class="g-recaptcha btn-primary btn btn-style" data-sitekey="6Lf0m64ZAAAAAOYQbo_FYne1mMO70KgWBBD5k-px" 
+          <button class="g-recaptcha btn-primary btn btn-style" data-sitekey="6LfsftgZAAAAAHEQWJOU4MWd2WzAOQcFUNT-ZszA" 
           data-callback='onSubmit' 
           data-action='submit'>Send</button>
 				</div>
