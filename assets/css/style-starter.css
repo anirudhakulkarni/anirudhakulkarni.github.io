@@ -3646,10 +3646,10 @@ input[type="button"].btn-block {
 
 .badge-primary {
   color: #fff;
-  background-color: #00d679; }
+  background-color: rgb(119, 0, 255); }
   a.badge-primary:hover, a.badge-primary:focus {
     color: #fff;
-    background-color: #00a35c; }
+    background-color: rgb(119, 0, 255); }
   a.badge-primary:focus, a.badge-primary.focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 214, 121, 0.5); }
@@ -9622,7 +9622,7 @@ img {
   border-radius: 8px; }
 
 .btn-primary {
-  background-color: #00b063; }
+  background-color: rgb(119, 0, 255); }
 
 .btn-style {
   font-size: 16px;
@@ -9670,11 +9670,12 @@ li.active a.nav-link {
 
 .navbar-dark .navbar-brand {
   font-size: 35px;
+  color: rgb(119, 0, 255);
   font-weight: 700;
-  color: var(--primary); }
+   }
 
 .navbar-dark .navbar-brand:hover {
-  color: var(--primary); }
+  color: rgb(119, 0, 255); }
 
 a.navbar-brand span.fa {
   font-size: 40px; }
@@ -9703,7 +9704,7 @@ a.navbar-brand span.fa {
     -moz-backdrop-filter: blur(2px);
     transition: .3s ease; }
   .navbar-dark .navbar-toggler {
-    border-color: var(--primary) !important;
+    border-color: rgb(119, 0, 255); !important;
     background: #161a1f;
     padding: 6px 10px;
     outline: none; } }
@@ -9734,14 +9735,14 @@ a.navbar-brand span.fa {
 .navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: var(--primary); }
+  color: rgb(119, 0, 255);; }
 
 .navbar-dark .navbar-nav .nav-link {
   color: #eee;
   font-weight: 700; }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
-  color: var(--primary); }
+  color: rgb(119, 0, 255);; }
 
 .w3l-header.inner-w3l-header {
   position: static;
@@ -9782,7 +9783,7 @@ a.navbar-brand span.fa {
   .w3l-header .navbar-toggler {
     padding: 6px 10px;
     font-size: 16px;
-    background-color: var(--primary);
+    background-color: rgb(119, 0, 255);;
     border: none; } }
 
 .w3l-main-banner {
@@ -9803,6 +9804,7 @@ a.navbar-brand span.fa {
   max-width: 750px; }
 
 .w3l-main-banner .banner-view {
+
   background: url(../images/mainimage.jpg) no-repeat right;
   background-size: cover;
   min-height: 700px;
@@ -10299,7 +10301,7 @@ section.w3l-grid-quote h3 {
   .w3l-footers-1 ul.social li a {
     color: #aaa; }
   .w3l-footers-1 ul.social li a:hover {
-    color: var(--primary); }
+    color: rgb(119, 0, 255);; }
   @media (max-width: 992px) {
     .w3l-footers-1 .footer-content {
       text-align: center; } }
@@ -10340,7 +10342,7 @@ section.w3l-grid-quote h3 {
   border-radius: 50%;
   opacity: .8;
   transition: all 20.5s ease-out 20s;
-  background-color: var(--primary); }
+  background-color: rgb(119, 0, 255);; }
 
 .w3l-about .about-content h4 {
   font-size: 30px;
@@ -10507,7 +10509,7 @@ section.w3l-grid-quote h3 {
 .hobbies-grid1 span.fa {
   font-size: 20px;
   line-height: 65px;
-  color: var(--primary); }
+  color: rgb(119, 0, 255);; }
 
 @media (max-width: 992px) {
   .hobbies-grid1 span.fa {
@@ -10564,7 +10566,7 @@ section.w3l-grid-quote h3 {
 
 .stats_info span.fa {
   font-size: 2.5em;
-  color: var(--primary);
+  color: rgb(119, 0, 255);;
   margin: 0; }
 
 .stats_bottom_grid_left img {
@@ -10671,7 +10673,7 @@ span.sicon {
   border-radius: 100%;
   color: #fff;
   font-size: 26px;
-  background-color: var(--primary); }
+  background-color: rgb(119, 0, 255);; }
 
 .bott-img .mission {
   position: relative;
@@ -10716,7 +10718,7 @@ span.sicon {
   font-size: 17px;
   line-height: 26px;
   font-weight: 700;
-  color: var(--primary); }
+  color: rgb(119, 0, 255);; }
 
 .description p {
   color: #ccc;
@@ -10764,7 +10766,7 @@ span.sicon {
   display: block; }
 
 .w3-icon-grid1 a:hover h3 {
-  color: var(--primary);
+  color: rgb(119, 0, 255);;
   transition: .3s;
   -webkit-transition: .3s;
   -moz-transition: .3s;
@@ -10790,7 +10792,7 @@ span.sicon {
   font-size: 25px;
   float: left;
   width: 40px;
-  color: var(--primary); }
+  color: rgb(119, 0, 255);; }
 
 .w3-services-right-grid h3 {
   color: var(--heading);
@@ -10944,7 +10946,7 @@ span.sicon {
   border-top-right-radius: 0px; }
 
 .service_grid_btm_left1:hover .service_grid_btm_left2 i {
-  color: var(--primary);
+  color: rgb(119, 0, 255);;
   border-color: #252525;
   transition: .5s all;
   -webkit-transition: .5s all;
@@ -10956,7 +10958,7 @@ span.sicon {
   display: inline-block;
   font-size: 30px;
   margin-bottom: 30px;
-  color: var(--primary); }
+  color: rgb(119, 0, 255);; }
 
 @media (max-width: 1024px) {
   .service_grid_btm_left2 h5 {
@@ -11004,7 +11006,7 @@ span.sicon {
   font-size: 35px;
   transform: scale(1);
   transition: 0.3s ease;
-  color: var(--primary); }
+  color: rgb(119, 0, 255);; }
 
 .w3l-services-block-3 .feature-body:hover h3.feature-titel {
   color: #fff;
@@ -11060,7 +11062,7 @@ span.sicon {
   font-size: 17px;
   line-height: 26px;
   font-weight: 700;
-  color: var(--primary); }
+  color: rgb(119, 0, 255);; }
 
 .w3l-open-block-services .open-description a:hover {
   color: #fff; }
