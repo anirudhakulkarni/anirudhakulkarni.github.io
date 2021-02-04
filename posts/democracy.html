@@ -17,7 +17,7 @@
 			content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		/>
 
-		<title>Arts | Anirudha Kulkarni</title>
+		<title>Democracy | Anirudha Kulkarni</title>
 
 		<!-- google fonts -->
 		<link
@@ -26,49 +26,17 @@
 		/>
 
 		<!-- Template CSS -->
-		<link rel="stylesheet" href="assets/css/style-starter.css" />
+		<link rel="stylesheet" href="../assets/css/style-starter.css" />
 		<link
 			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
 			rel="stylesheet"
 		/>
-
 		<script src="https://www.google.com/recaptcha/api.js"></script>
 		<script>
 			function onSubmit(token) {
 				document.getElementById('demo-form').submit();
 			}
 		</script>
-		<style>
-			.GradientBorder {
-				margin-top: 60px;
-				position: relative;
-				width: 900px;
-				padding: 40px 0;
-				color: #fff;
-				text-align: center;
-				background: #020117;
-			}
-			.GradientBorder::after {
-				content: '';
-				top: -5px;
-				left: -5px;
-				right: -5px;
-				bottom: -5px;
-				background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
-				z-index: -1;
-			}
-			.GradientBorder::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
-				z-index: -2;
-				filter: blur(40px);
-			}
-		</style>
 	</head>
 
 	<body style="background-color: black">
@@ -98,21 +66,23 @@
 						<div class="collapse navbar-collapse" id="navbarNav">
 							<ul class="navbar-nav ml-auto">
 								<li class="nav-item mr-lg-4">
-									<a class="nav-link pl-0 pr-0" href="./index.html"
+									<a class="nav-link pl-0 pr-0" href="../index.html"
 										>Home <span class="sr-only">(current)</span></a
 									>
 								</li>
 								<li class="nav-item mr-lg-4">
-									<a class="nav-link pl-0 pr-0" href="./about.html">About me</a>
-								</li>
-								<li class="nav-item active mr-lg-4">
-									<a class="nav-link pl-0 pr-0" href="./arts.html">Arts</a>
+									<a class="nav-link pl-0 pr-0" href="../about.html"
+										>About me</a
+									>
 								</li>
 								<li class="nav-item mr-lg-4">
-									<a class="nav-link pl-0 pr-0" href="./blog.html">Blog</a>
+									<a class="nav-link pl-0 pr-0" href="../arts.html">Arts</a>
+								</li>
+								<li class="nav-item active mr-lg-4">
+									<a class="nav-link pl-0 pr-0" href="../blog.html">Blog</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link pl-0 pr-0" href="./contact.html"
+									<a class="nav-link pl-0 pr-0" href="../contact.html"
 										>Contact</a
 									>
 								</li>
@@ -122,70 +92,98 @@
 				</div>
 			</div>
 		</header>
+		<section class="flex justify-center">
+			<article class="flex flex-col mx-20 px-20 shadow my-4">
+				<!-- Article Image -->
 
-		<section class="text-gray-100 body-font">
-			<div
-				class="container text-5xl mx-auto flex px-5 py-2 mt-10 items-center justify-center flex-col"
-			>
-				Some Collections
-			</div>
-			<div
-				class="container GradientBorder mx-auto flex px-2 py-24 items-center justify-center flex-col"
-			>
-				<img
-					class="py-10 rounded-lg shadow-2xl shadow-2xl transition ease-in-out duration-700 hover:translate-y-5 w-1/2 mb-2 object-cover object-center rounded-xl shadow-xl"
-					alt="hero"
-					src="./assets/images/nature.jpg"
-				/>
-				<div class="text-center lg:w-2/3 w-full">
-					<h1
-						class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-100"
+				<div class="bg-indigo-900 justify-center px-10 w-5/6 m-auto">
+					<a href="#" class="hover:opacity-75 max-w-full px-10">
+						<img src="../assets/images/demo.jpg" />
+					</a>
+					<br />
+					<div href="#" class="text-gray-400 text-sm font-bold uppercase pb-2">
+						Policy<br />
+					</div>
+					<div
+						href="#"
+						class="text-4xl font-bold text-gray-200 hover:text-gray-400 pb-2"
 					>
-						Nature
-					</h1>
-					<p class="mb-8 leading-relaxed">
-						O neglectful Nature, wherefore art thou thus partial, becoming to
-						some of thy children a tender and benignant mother, to others a most
-						cruel and ruthless stepmother? I see thy children given into slavery
-						to others without ever receiving any benefit, and in lieu of any
-						reward for the services they have done for them they are repaid by
-						the severest punishments.
-						<small class="author"
-							><br />
-							- Leonardo da Vinci</small
-						>
+						Should Common people be given the right to chose who should be the
+						policymaker?
+					</div>
+
+					<p href="../" class="text-sm pb-8 text-gray-300">
+						By
+						<a
+							href="../"
+							class="font-semibold text-gray-200 hover:text-gray-500"
+							>Anirudha Kulkarni</a
+						>, Published on February 04th, 2021
+					</p>
+					<p class="text-gray-400 text-xl">
+						I am afraid I have to disagree. I believe policymakers play an
+						essential role in overall national development and should not be
+						chosen by a common man. Consider a situation when a small kid got
+						some disease and having stomach pain. What should you do? Should you
+						go to an expert like a doctor or let that kid decide for himself? If
+						he thinks eating chocolate will make him feel better even if he has
+						diabetes and can die due to it? My claim is that policy is a much
+						intellectually demanding thing; One cannot do this as time pass. One
+						must have enough knowledge to comment on them.<br /><br />
+						A person who does his job most of the time and gains knowledge about
+						what current government is doing or what leaders are doing from
+						newspapers (with practically biased statistics or no data at all).
+						Furthermore, he will be choosing who is going to make policy. So
+						what do you expect to happen? In the end, the person who manages his
+						Twitter profile well or can give a better speech and in the worst
+						case, who can pay a lot wins the election. <br /><br />
+						We can change this. Let us consider a scenario when policymakers are
+						elected by a group of experts from various fields, and those who are
+						elected are also experts in the field. Who can evaluate the
+						performance and understand the data. At this moment, half of the
+						Indian population is against farm bills, and half is in against.
+						Should there be a notion of subjectivity in this where data can
+						clearly make a difference if the bill is against the farmer or in
+						the favor? Even if there is subjectivity due to uncertainty in the
+						future or lack of data, intellectual assumptions can be made and
+						verified. There is no point in the current scenario. I tried my best
+						to understand what the bill is saying and whether it favors or is
+						against it. But I failed. It is not easy to claim on certain
+						assumptions to claim to be valid or invalid. And that's where I was
+						surprised. How are so many people on the roads claiming something
+						about them? I do not doubt their intellect, but considering the
+						current status of Indians in the global market, it's hard to believe
+						any of them even understand them. I am not saying I understand them
+						and make fun of others who are in favor or against them. The only
+						thing I am saying is there are considerable people on both sides.
+						Considerable of them must be wrong<br /><br />
+						And that's where I found the problem with the system. Why common
+						people should be given the right to speak something upon which they
+						don't understand. People just don't have enough resources and time
+						to figure it. Half knowledge is dangerous than no knowledge.<br /><br />
+						Form an institution that is independent of everything. Make it
+						private. Private institutions are better at handling corruption and
+						unfairness compared to government. Give them enough rights to
+						question everything and let them recruit some of the best in their
+						respective fields. They will be the auditor of the government. Not
+						common people. What common people can do is make a request to the
+						auditors about the claim that they feel is inappropriate. Such an
+						auditing system will audit every government policy, and everything
+						government does. If it fails to achieve "Vikas," let the auditors
+						who are intelligent enough to judge the effects can comment if its
+						"acche din" or smokescreen by IT cell.<br /><br />
+					</p>
+					<h1 class="text-gray-100 text-2xl pt-3 pb-1">Conclusion</h1>
+					<p class="text-gray-400 text-xl pb-10">
+						ordinary people should not be allowed to judge the performance of
+						any policy or government. Preferably there should be an intellectual
+						body of respected people from various institutions who can evaluate.
+						We common people busy in everyday activities do not have enough
+						resources and knowledge to do so.
 					</p>
 				</div>
-			</div>
+			</article>
 		</section>
-		<section class="text-gray-100 body-font mb-10">
-			<div
-				class="container GradientBorder mx-auto flex px-2 py-24 items-center justify-center flex-col"
-			>
-				<img
-					class="py-10 rounded-lg shadow-2xl shadow-2xl transition ease-in-out duration-700 hover:translate-y-5 w-1/2 mb-2 object-cover object-center rounded-xl shadow-xl"
-					alt="hero"
-					src="./assets/images/iron-man.jpg"
-				/>
-				<div class="text-center lg:w-2/3 w-full">
-					<h1
-						class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-100"
-					>
-						Alive
-					</h1>
-					<p class="mb-8 leading-relaxed">
-						“I shouldn’t be alive… unless it was for a reason. I’m not crazy,
-						Pepper. I just finally know what I have to do. And I know in my
-						heart that it’s right.“
-						<small class="author"
-							><br />
-							- Toney Stark</small
-						>
-					</p>
-				</div>
-			</div>
-		</section>
-		<!-- Footer -->
 
 		<footer>
 			<section class="w3l-footers-1">
