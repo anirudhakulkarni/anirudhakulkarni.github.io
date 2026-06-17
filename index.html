@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Essays and notes by Anirudha Kulkarni.">
+<link rel="canonical" href="https://anirudhakulkarni.io/">
+<title>Anirudha Kulkarni</title>
+<style>
+:root{
+  --paper:#FCFCFA; --ink:#1B1B19; --muted:#6E6E68; --rule:#E3E3DE; --link:#24406A; --draft:#F1F1EC;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131312; --ink:#E4E2DC; --muted:#8E8D86; --rule:#2A2A27; --link:#93B1DA; --draft:#1C1C1A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131312; --ink:#E4E2DC; --muted:#8E8D86; --rule:#2A2A27; --link:#93B1DA; --draft:#1C1C1A;
+  color-scheme:dark;
+}
+html{background:var(--paper)}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:Charter,"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  font-size:18px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+main{max-width:34em; margin:0 auto; padding:5.5rem 1.25rem 6rem}
+h1{font-size:1.05rem; font-weight:normal; margin:0 0 .35rem; letter-spacing:.01em}
+h1 a{color:inherit; text-decoration:none}
+.lede{color:var(--muted); margin:0 0 3.25rem}
+h2{font-size:1rem; font-weight:normal; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); margin:0 0 1.1rem}
+p{margin:0 0 1.15rem}
+a{color:var(--link); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.16em}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--link); outline-offset:3px}
+
+/* routing: one file, no script */
+.page{display:none}
+.page:target{display:block}
+body:not(:has(.page:target)) #home{display:block}
+
+/* essay index */
+.index{list-style:none; padding:0; margin:0 0 3.5rem}
+.index li{padding:.42rem 0; border-top:1px solid var(--rule)}
+.index li:last-child{border-bottom:1px solid var(--rule)}
+.index a{text-decoration:none; color:inherit}
+.index a:hover{text-decoration:underline}
+.index .tag{color:var(--muted); font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; margin-left:.7rem}
+
+.foot{color:var(--muted); font-size:.92rem; display:flex; flex-wrap:wrap; gap:0 1.35rem}
+.foot a{color:inherit; text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.back{display:block; color:var(--muted); font-size:.92rem; text-decoration:none; margin-bottom:3rem}
+.back:hover{text-decoration:underline}
+
+/* essay page */
+.essay h2{margin-bottom:.15rem}
+.essay .title{font-size:1.55rem; line-height:1.25; margin:0 0 2.4rem; text-wrap:balance; font-weight:normal}
+.essay p{max-width:32em}
+.essay .meta{color:var(--muted); font-size:.92rem; margin:-1.9rem 0 2.4rem}
+.essay .meta a{color:inherit}
+.essay h3{font-size:1rem; font-weight:normal; font-style:italic; margin:2rem 0 .7rem}
+.draft{background:var(--draft); border-left:2px solid var(--rule); padding:.55rem .9rem; color:var(--muted); font-size:.92rem; margin:0 0 2.2rem}
+hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
+
+
+/* lists on evergreen pages */
+.plain{padding-left:1.1em; margin:0 0 1.5rem}
+.plain li{margin:0 0 .55rem}
+.plain i{color:var(--muted); font-style:normal}
+
+
+/* things I like */
+.likes .group{margin:0 0 3.2rem}
+.likes h3{font-size:.78rem; font-weight:normal; text-transform:uppercase; letter-spacing:.16em; color:var(--muted); margin:0 0 1.1rem; display:flex; align-items:center; gap:.9rem}
+.likes h3:after{content:""; flex:1; border-top:1px solid var(--rule)}
+.likes .grid{display:grid; grid-template-columns:1fr 1fr; gap:1.7rem 1.1rem}
+.likes .grid > .like:first-child:nth-last-child(odd){grid-column:1/-1}
+.likes .like{margin:0}
+.likes .frame{display:block; position:relative; aspect-ratio:16/9; background:var(--draft); border-radius:3px; overflow:hidden; box-shadow:0 0 0 1px var(--rule)}
+.likes .frame iframe,.likes .frame img{position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover}
+.likes .frame.img img{object-fit:contain}
+.likes figcaption{margin:.6rem 0 0; font-size:.95rem; line-height:1.35}
+.likes figcaption a{color:inherit; text-decoration:none}
+.likes figcaption a:hover{text-decoration:underline}
+.likes figcaption span,.likes .links span{display:block; color:var(--muted); font-size:.8rem; margin-top:.2rem; font-variant-numeric:tabular-nums; letter-spacing:.01em}
+.likes .links{list-style:none; padding:0; margin:1.4rem 0 0}
+.likes .links li{display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding:.42rem 0; border-top:1px solid var(--rule); font-size:.95rem}
+.likes .links li:last-child{border-bottom:1px solid var(--rule)}
+.likes .links span{display:inline; margin:0; text-align:right}
+.likes .links a{color:inherit; text-decoration:none}
+.likes .links a:hover{text-decoration:underline}
+.likes .quote{margin:0; padding:.85rem 0; border-top:1px solid var(--rule)}
+.likes .quote:last-of-type{border-bottom:1px solid var(--rule)}
+.likes .quote p{margin:0; font-size:1.12rem; line-height:1.45; text-wrap:balance}
+.likes .quote cite{display:block; margin-top:.3rem; color:var(--muted); font-size:.8rem; font-style:normal; letter-spacing:.01em}
+@media (max-width:600px){ .likes .grid{grid-template-columns:1fr} }
+
+/* ascii portrait */
+.masthead{display:flex; align-items:flex-start; justify-content:space-between; gap:1.5rem; margin-bottom:3.25rem}
+.masthead > div{flex:1 1 auto}
+.masthead > .pic{flex:0 0 auto}
+.principles{padding-left:1.4em}
+.principles li{margin-bottom:1.15rem; padding-left:.3em}
+.masthead .lede{margin-bottom:0}
+.portrait{margin:0; color:var(--muted); font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:6.5px; line-height:1.15; letter-spacing:.02em; user-select:none; opacity:.85}
+
+/* disco (hover or tap only; the page at rest stays quiet) */
+.pic{position:relative; flex:0 0 auto; outline:none}
+.pic .party{display:none; position:absolute; inset:0}
+.pic:hover .party,.pic:focus-within .party,.pic:active .party{display:block; color:#ff2d75; animation:disco .9s linear infinite, bop .45s ease-in-out infinite alternate}
+.pic:hover .portrait:not(.party),.pic:focus-within .portrait:not(.party),.pic:active .portrait:not(.party){visibility:hidden}
+@keyframes disco{to{filter:hue-rotate(360deg)}}
+@keyframes bop{from{transform:rotate(-4deg) translateY(0)} to{transform:rotate(4deg) translateY(-3px)}}
+@media (prefers-reduced-motion: reduce){ .pic .party{animation:none!important; color:var(--ink)} }
+@media (max-width:600px){ .masthead{flex-direction:column-reverse; gap:1.25rem} }
+
+@media (max-width:600px){ main{padding-top:3.5rem} body{font-size:17px} }
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+<main>
+
+<!-- ============ HOME ============ -->
+<section id="home" class="page">
+  <div class="masthead">
+    <div>
+      <h1><a href="#home">Anirudha Kulkarni</a></h1>
+      <p class="lede">In 100 years nobody will remember any of this. That makes me less afraid and more ambitious. Life is short and there is no fun in comfort. I want to live mine on extreme mode. I like to write, run, box, and play table tennis and badminton.</p>
+    </div>
+    <div class="pic" tabindex="0" title="don't">
+      <pre class="portrait" aria-hidden="true">        .+#####*+-..
+      -@@@@@@@@@@@@@@@#*+-.
+    -*@@@@@@@@@@@@@@@@@@@@@#
+   *@@@@@@@@@@@@@@@@@@@@@@@@*.
+  #@@@@@@@@@@@@@@@@@@@@@@@@@@@#.
+ .@@@@@@@@@@@@@#*++++*##@@@@@@#
+  #@@@@@***+++--------++**@@@@.
+  .@@@*++++--....---++**#*#@@@.
+   -@#++***##*+---+*######*@@-
+    +*++***#**+---*#+####**#*
+   .-+++++++++----+**+++****+.
+   +*++------------++++--+***-
+   -++++------++--++++--++***.
+    -++++------+--+++++++**+-
+      .+++++-++++++**+****.
+        +++++++++++*++***.
+        .++++-----+++****
+         +++++++++++***++.
+         ------++++++++++.
+         -----------+++++-
+      --------------+---+++.
+......+++---------------+-+.....
+.......++----------+-+++++-.........
+.........---+----++++++--...........
+-.............-------...............</pre>
+      <pre class="portrait party" aria-hidden="true">        .+#####*+-..
+      -@@@@@@@@@@@@@@@#*+-.
+    -*@@@@@@@@@@@@@@@@@@@@@#
+   *@@@@@@@@@@@@@@@@@@@@@@@@*.
+  #@@@@@@@@@@@@@@@@@@@@@@@@@@@#.
+ .@@@@@@@@@@@@@#*++++*##@@@@@@#
+  #@@@@@***+++--------++**@@@@.
+  .@@@*++++--....---++**#*#@@@.
+   --#@@@@@@@@@--@@@@@@@@@#---
+    -#@@@@@@@@@--@@@@@@@@@#-*
+   .-+&#x27;@@@@@@@&#x27;--&#x27;@@@@@@@&#x27;**+.
+   +*++------------++++--+***-
+   -++++------++--++++--++***.
+    -++++------+--+++++++**+-
+      .+++++-++++++**+****.
+        +++++++++++*++***.
+        .++++-----+++****
+         +++++++++++***++.
+         ------++++++++++.
+         -----------+++++-
+      --------------+---+++.
+......+++---------------+-+.....
+.......++----------+-+++++-.........
+.........---+----++++++--...........
+-.............-------...............</pre>
+    </div>
+  </div>
+
+  <p class="foot">
+    <a href="#essays">Essays</a>
+    <a href="#likes">Things I want to keep</a>
+    <a href="#advice">Principles</a>
+    <a href="mailto:kulkarni.anirudha.8@gmail.com">Email</a>
+  </p>
+</section>
+
+
+
+<!-- ============ ESSAYS ============ -->
+<section id="essays" class="page">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essays</h2>
+  <ul class="index">
+    <li><a href="#borrowed-growth">Borrowed growth</a></li>
+    <li><a href="#unmetered-day">The unmetered day</a></li>
+    <li><a href="#good-enough">Good enough is a decision somebody makes</a></li>
+    <li><a href="#great-great-grandfather">Nobody remembers your great-great-grandfather</a></li>
+    <li><a href="#recruiting">Ambition is a recruiting problem</a></li>
+    <li><a href="#staying">Staying</a></li>
+    <li><a href="#thin-wire">Two nodes and a thin wire</a></li>
+    <li><a href="#m-regrets">Regrets</a><span class="tag">Medium</span></li>
+    <li><a href="#m-learned-helplessness-to-prioritization">Learned helplessness to prioritization</a><span class="tag">Medium</span></li>
+    <li><a href="#m-thoughts-on-goal-achieving">Thoughts on goal-achieving</a><span class="tag">Medium</span></li>
+    <li><a href="#m-taking-a-different-route">Taking a different route</a><span class="tag">Medium</span></li>
+    <li><a href="#m-how-i-deal-with-overthinking">How I deal with Overthinking</a><span class="tag">Medium</span></li>
+    <li><a href="#m-people">People</a><span class="tag">Medium</span></li>
+  </ul>
+</section>
+
+<!-- ============ LIKES ============ -->
+<section id="likes" class="page likes">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Things I want to keep</h2>
+  <p class="lede">I run, box, and play table tennis and badminton. I have travelled solo to 12 countries so far, and I am a professional scuba diver. I watch action movies and read books, mostly Dan Brown and Harry Potter. Death Note and Attack on Titan are my favourite anime.</p>
+  <div class="group">
+    <blockquote class="quote"><p>Make it work, make it right, make it fast.</p><cite>Kent Beck</cite></blockquote>
+    <blockquote class="quote"><p>A complex system that works is invariably found to have evolved from a simple system that worked.</p><cite>John Gall, Systemantics</cite></blockquote>
+    <blockquote class="quote"><p>If you do not work on an important problem, it&#x27;s unlikely you&#x27;ll do important work.</p><cite>Richard Hamming</cite></blockquote>
+    <blockquote class="quote"><p>The first principle is that you must not fool yourself, and you are the easiest person to fool.</p><cite>Richard Feynman</cite></blockquote>
+    <blockquote class="quote"><p>Make something people want.</p><cite>Paul Graham</cite></blockquote>
+    <blockquote class="quote"><p>Pessimists sound smart. Optimists make money.</p><cite>Nat Friedman</cite></blockquote>
+    <blockquote class="quote"><p>When in doubt, use brute force.</p><cite>Ken Thompson</cite></blockquote>
+    <blockquote class="quote"><p>It&#x27;s easier to ask forgiveness than it is to get permission.</p><cite>Grace Hopper</cite></blockquote>
+    <blockquote class="quote"><p>The impediment to action advances action. What stands in the way becomes the way.</p><cite>Marcus Aurelius</cite></blockquote>
+    <blockquote class="quote"><p>It is not that we have a short time to live, but that we waste a lot of it.</p><cite>Seneca</cite></blockquote>
+    <blockquote class="quote"><p>I can do hard things, and so can you.</p><cite>Mark Dowdle</cite></blockquote>
+  <div class="grid">
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/IPSBO6OkPaI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/IPSBO6OkPaI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Margaret Hamilton, 1936 to 2026" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=IPSBO6OkPaI">Margaret Hamilton, 1936 to 2026</a><span>PBS NewsHour · 46 sec</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/sBSQfchNqhE?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/sBSQfchNqhE/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Alex Karp doing push-ups on stage" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/shorts/sBSQfchNqhE">Alex Karp doing push-ups on stage</a><span>Palantir CEO · 5 sec</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/ypEqOx5MYZg?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/ypEqOx5MYZg/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Rich Roll Podcast" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=ypEqOx5MYZg">The Rich Roll Podcast</a><span>306 miles in 73 hours · 2026 · 1 hr 19 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/0UYEVxvh2kI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/0UYEVxvh2kI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Jon Jones vs Daniel Cormier 2" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=0UYEVxvh2kI">Jon Jones vs Daniel Cormier 2</a><span>UFC 214 · 2017 · 18 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/BUxmDLIKb5E?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/BUxmDLIKb5E/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Justin Gaethje vs Tony Ferguson" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=BUxmDLIKb5E">Justin Gaethje vs Tony Ferguson</a><span>UFC 249 · 2020 · 35 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/FL_7qfO1KVg?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/FL_7qfO1KVg/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="I went back to the race that almost broke me" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=FL_7qfO1KVg">I went back to the race that almost broke me</a><span>Arrowhead 135 film · 2026 · 50 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/W7StRPCtF-E?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/W7StRPCtF-E/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Matt Hughes vs Georges St-Pierre 1" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=W7StRPCtF-E">Matt Hughes vs Georges St-Pierre 1</a><span>UFC 50 · 2004 · 17 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/4RDBJ91jS10?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/4RDBJ91jS10/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Five real diving accidents and what they taught" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=4RDBJ91jS10">Five real diving accidents and what they taught</a><span>Dive SAGA · 15 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/rLuppO32rUI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/rLuppO32rUI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Dan Henderson vs Shogun Rua" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=rLuppO32rUI">Dan Henderson vs Shogun Rua</a><span>UFC 139 · 2011 · 35 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/ocsu8P4-GS4?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/ocsu8P4-GS4/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Robbie Lawler vs Rory MacDonald 2" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=ocsu8P4-GS4">Robbie Lawler vs Rory MacDonald 2</a><span>UFC 189 · 2015 · 22 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/si9iqF5uTFk?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/si9iqF5uTFk/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Grace Hopper on future possibilities" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=si9iqF5uTFk">Grace Hopper on future possibilities</a><span>NSA lecture · 1982 · 48 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/PQjaLhbVRr0?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/PQjaLhbVRr0/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Dave Not Coming Back" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=PQjaLhbVRr0">Dave Not Coming Back</a><span>Bushman&#x27;s Hole, 270 m · 2005 · full film, 1 hr 35 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/qu4YNpPMNyI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/qu4YNpPMNyI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Edson Barboza, wheel kicks" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=qu4YNpPMNyI">Edson Barboza, wheel kicks</a><span>UFC · 49 sec</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/NjIhmzU0Y8Y?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/NjIhmzU0Y8Y/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Steve Jobs: a bicycle for the mind" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=NjIhmzU0Y8Y">Steve Jobs: a bicycle for the mind</a><span>1 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/JuBBIJ7adjM?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/JuBBIJ7adjM/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Khabib Nurmagomedov vs Conor McGregor" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=JuBBIJ7adjM">Khabib Nurmagomedov vs Conor McGregor</a><span>UFC 229 · 2018 · 19 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/oE2uls6iIEU?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/oE2uls6iIEU/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Grace Hopper on Letterman" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=oE2uls6iIEU">Grace Hopper on Letterman</a><span>1986 · 10 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/cUXVXvRUllQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/cUXVXvRUllQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Masvidal over Askren in five seconds" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=cUXVXvRUllQ">Masvidal over Askren in five seconds</a><span>UFC 239 · 2019 · fastest KO in UFC history</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/CIXbZPHLv2o?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/CIXbZPHLv2o/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Sebastian Steudtner, 86 feet at Nazaré" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=CIXbZPHLv2o">Sebastian Steudtner, 86 feet at Nazaré</a><span>largest wave ever surfed · 2020</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/VbWOjyngYuQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/VbWOjyngYuQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Anderson Silva&#x27;s front kick on Vitor Belfort" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=VbWOjyngYuQ">Anderson Silva&#x27;s front kick on Vitor Belfort</a><span>UFC 126 · 2011 · 40 sec</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/_-Kw5kAPSbk?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/_-Kw5kAPSbk/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Rescue" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=_-Kw5kAPSbk">The Rescue</a><span>Thai cave divers · 2018 · trailer</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/djjWsQy9RgQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/djjWsQy9RgQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Backyard Ultra: Finding the limit" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=djjWsQy9RgQ">Backyard Ultra: Finding the limit</a><span>what the format is · 2020 · 55 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/XdOzbM_7GMI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/XdOzbM_7GMI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Nose in under two hours" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=XdOzbM_7GMI">The Nose in under two hours</a><span>Honnold and Caldwell · 2018 · time-lapse</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/LnzuMJLZRdU?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/LnzuMJLZRdU/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Hello, world from scratch on a 6502" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=LnzuMJLZRdU">Hello, world from scratch on a 6502</a><span>Ben Eater · 2019 · 27 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/EY6q5dv_B-o?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/EY6q5dv_B-o/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Ken Thompson interviewed by Brian Kernighan" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=EY6q5dv_B-o">Ken Thompson interviewed by Brian Kernighan</a><span>VCF East · 2019 · 1 hr 3 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/mSJL57Gq2OQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/mSJL57Gq2OQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Last Breath" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=mSJL57Gq2OQ">Last Breath</a><span>Chris Lemons, 30 minutes without air · 2012 · trailer</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/BvWB7B8tXK8?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/BvWB7B8tXK8/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Joe Rogan Experience #1212" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=BvWB7B8tXK8">Joe Rogan Experience #1212</a><span>PowerfulJRE · 2018 · 2 hr 17 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/6iM6M_7wBMc?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/6iM6M_7wBMc/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Alex Honnold on free soloing El Capitan" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=6iM6M_7wBMc">Alex Honnold on free soloing El Capitan</a><span>TED · 2018 · 11 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/vyJ_hhninDw?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/vyJ_hhninDw/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Strengthen your mind" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=vyJ_hhninDw">Strengthen your mind</a><span>Big Think · 2017 · 8 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/78I9dTB9vqM?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/78I9dTB9vqM/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Impact Theory with Tom Bilyeu" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=78I9dTB9vqM">Impact Theory with Tom Bilyeu</a><span>2017 · 57 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/xQ_IQS3VKjA?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/xQ_IQS3VKjA/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Danny MacAskill: The Ridge" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=xQ_IQS3VKjA">Danny MacAskill: The Ridge</a><span>Isle of Skye · 2014 · 7 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/XvDZLjaCJuw?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/XvDZLjaCJuw/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The UNIX System: Making Computers Easier to Use" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=XvDZLjaCJuw">The UNIX System: Making Computers Easier to Use</a><span>Bell Labs film · 1982 · 23 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/FHtvDA0W34I?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/FHtvDA0W34I/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Felix Baumgartner jumps from 128,000 feet" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=FHtvDA0W34I">Felix Baumgartner jumps from 128,000 feet</a><span>Red Bull Stratos · 2012</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/yJDv-zdhzMY?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/yJDv-zdhzMY/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Mother of All Demos" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=yJDv-zdhzMY">The Mother of All Demos</a><span>Douglas Engelbart · 1968 · 1 hr 40 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/uQITWbAaDx0?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/uQITWbAaDx0/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Guillaume Néry, base jump into Dean&#x27;s Blue Hole" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=uQITWbAaDx0">Guillaume Néry, base jump into Dean&#x27;s Blue Hole</a><span>on one breath · 4 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <a class="frame img" href="likes/margaret-hamilton.jpg"><img src="likes/margaret-hamilton.jpg" alt="Margaret Hamilton next to the Apollo guidance code" loading="lazy"></a>
+      <figcaption>Margaret Hamilton next to the Apollo guidance code<span>MIT, 1969</span></figcaption>
+    </figure>
+  </div>
+  <ul class="links">
+    <li><a href="https://groups.google.com/g/comp.os.minix/c/dlNtH7RRrGA/m/SwRavCzVE7gJ">Linus announces Linux</a><span>comp.os.minix, 1991</span></li>
+    <li><a href="http://info.cern.ch/hypertext/WWW/TheProject.html">The first website</a><span>CERN, 1991</span></li>
+    <li><a href="https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf">Reflections on Trusting Trust</a><span>Ken Thompson, 1984</span></li>
+    <li><a href="https://www.instagram.com/davidgoggins/">Instagram</a><span>@davidgoggins</span></li>
+    <li><a href="https://www.instagram.com/mark.dowdle/">Instagram</a><span>@mark.dowdle</span></li>
+    <li><a href="https://mark-dowdle.com/">mark-dowdle.com</a><span>Backyard ultras, Arrowhead 135</span></li>
+    <li><a href="https://github.com/chrislgarry/Apollo-11">Apollo 11 guidance computer source</a><span>GitHub</span></li>
+    <li><a href="https://www.nokia.com/bell-labs/about/dennis-m-ritchie/chist.html">The Development of the C Language</a><span>Dennis Ritchie</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Dave_Shaw_(diver)">Dave Shaw</a><span>Wikipedia</span></li>
+    <li><a href="https://paulgraham.com/articles.html">Paul Graham&#x27;s essays</a><span>paulgraham.com</span></li>
+    <li><a href="https://patrickcollison.com/">Patrick Collison</a><span>patrickcollison.com</span></li>
+    <li><a href="https://blog.samaltman.com/">Sam Altman&#x27;s blog</a><span>blog.samaltman.com</span></li>
+  </ul>
+  </div>
+</section>
+<!-- ============ /LIKES ============ -->
+
+<!-- ============ ESSAY: borrowed-growth ============ -->
+<article id="borrowed-growth" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Borrowed growth</p>
+  <p>A company has no growth rate of its own. It inherits one from whoever it sells to, and most founders choose whose growth to inherit without noticing they have made a choice.</p>
+  <p>There are two kinds of customer. The first is the enterprise, which already has volume, and buys from you because you reached the right 3 people and survived procurement. The second is the startup, which has almost no volume, and buys from you because you were there and the price was low. The usual way to compare them is deal size against deal count. I think the better comparison is what you get paid in.</p>
+  <p>The enterprise pays you in cash for revenue that already exists. The startup pays you in a share of revenue that does not exist yet. In finance that second thing is an option, a contract that costs little today and pays only if your customer grows. When you sell to startups you buy a thousand small options, and the odd part is that you pay the premium, not the customer. The free tier, the usage price that rounds to zero, the support ticket from a 3-person company, that is the premium. You pay it in advance for the right to collect later.</p>
+  <p>Look at who carries the risk and the two models swap places. The enterprise buyer carries it. They pay up front for a product that may not work, so they insure themselves with months of procurement, a security review, and a pilot. Procurement is the price of insurance, and whoever buys the insurance holds the risk.</p>
+  <p>The startup vendor holds it instead. It serves 1,000 companies at a loss and waits to see which 30 survive. Nobody runs a security review on a free tier. The customer risks nothing, and the vendor has already accepted that most of the money will never arrive.</p>
+  <p>Now the part that makes this a different kind of company and not just a different price list. If your customers grow 100% a year and your bill scales with their usage, you grow 100% a year without a single new sale. Your growth rate is a weighted average of your customers&#x27; growth rates, weighted by each one&#x27;s share of your revenue. The enterprise vendor&#x27;s growth is its own sales headcount times its own close rate, which is linear in effort. The startup vendor&#x27;s growth is whatever its customers did this year, which is linear in nothing it controls.</p>
+  <p>Stripe opened to anyone with an API key in September 2011, and a fraction of those keys belonged to companies that became very large. Stripe never sold to those companies. It was already there when they grew.</p>
+  <p>Which means the product decision, for a startup vendor, is mostly a decision about which cohort. Supabase in 2020 picked the people who would otherwise have used Firebase. The agent infrastructure companies of the last 2 years picked the belief that software agents will multiply. Each of those is a bet on a wave, placed before the wave is visible, and the product is a claim on the wave. If the cohort is wrong, no product quality saves you, because your customers die and take your options with them. If the cohort is right, an average product still rides.</p>
+  <p>This is also why early and wrong look the same for 3 years. In the enterprise model early is wrong, because the budget does not exist yet and no amount of relationship creates it. In the startup model early is the only time the option is cheap. The vendor that waits until the wave is visible buys in at full price, against a crowded market, from customers who already have someone.</p>
+  <p>Then the option pays, and this is the part that founders who envy Stripe forget. The day a startup customer becomes an enterprise, your bill becomes one of their largest lines, with its own slide in the board deck. At the end of 2016 Uber was 17% of Twilio&#x27;s revenue. In May 2017 Twilio told investors that Uber was moving part of that volume in house and part to other vendors. The share price fell by about a quarter the next day. The customer you bet on, the one that paid, is the one that renegotiates.</p>
+  <p>So the startup path does not avoid the enterprise sale. It arrives at the enterprise sale from the inside, years in, with your code in their stack, and that is the prize. The enterprise vendor buys the relationship with 2 years of dinners. The startup vendor got it free, because it was useful before procurement existed.</p>
+  <p>Each path has a trap that looks like good sense. The enterprise trap is comfort. A founder who came from a large company already knows the buyers, and selling to people you know feels like judgement. The usual defence is that the revenue is real and a founder should take real revenue over a story. That is a fair reason, and it is often not the actual one. The actual one is that nobody could name a wave with any confidence.</p>
+  <p>The startup trap is the belief that it is the lazy path, revenue that goes up while you sleep. That is wrong in a specific way. The work does not disappear. It moves, from selling to picking, and picking is the harder kind of work because nothing tells you for 3 years whether you picked right. The enterprise vendor gets a signed contract as proof it was correct. The startup vendor gets a usage graph that is flat until it is not.</p>
+  <p>I do not think the answer is to switch. A company can hold both, and most that last end up with both, because the option, when it pays, turns into a stock. The answer I would give is to know which one you hold, and to never price one like the other. If you sell the stock, you are in the relationship business, and the count to watch is how many right people take your call. If you hold the options, you are in the picking business. The count to watch there is the survival rate of the cohort you chose, which you can only read in arrears.</p>
+  <p>The test is a single extra column on the customer list. Next to each customer, write whether you are paid in cash or in a share of what has not happened yet. For the second kind, write what you are betting will happen.</p>
+  <p>The second column is usually the short one, a few guesses about which small companies will be large in 3 years. Those few lines are the only part of the list that can change what the company is worth. They deserve more attention than the contracts.</p>
+</article>
+
+<!-- ============ ESSAY: unmetered-day ============ -->
+<article id="unmetered-day" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">The unmetered day</p>
+  <p>Most of what gets called hard work is long work, and the two are almost unrelated.</p>
+  <p>I know this because I have done a great deal of the long kind. On the trading floors I worked on, the day is 13 hours, and the day is not a metaphor. You arrive before the exchange opens, you leave after it closes and the post-trade jobs have run, and the hours in between are sitting and coding and trying one more thing. Nobody asked me to do this. It was the shape of the room, and I fitted the room.</p>
+  <p>For a long time I believed those hours were the work. If a week had 65 of them it had been a good week. This is the first thing I want to take apart, because I think a lot of people who consider themselves hard workers are actually counting the same wrong thing I was.</p>
+  <p>Here is the wrong thing. Hours are the only quantity that is always available to be measured. Progress on a hard problem is not visible day to day, quality is not visible until someone else reads the code, and whether the thing you built mattered will not be known for a year. Hours are visible at 9pm when you look at the clock. So the ambitious person, who badly wants a number to be going up, picks the one number that can be read off the wall. I picked it. It felt like rigour and it was closer to superstition.</p>
+  <p>Compare a different kind of day. In my first year at college I joined the startup club and tried everything, and nothing worked, and the reason nothing worked was not effort. It was that I had no skills yet. You cannot outwork the absence of a skill. The following year I did much less and got much further, because the less was aimed at one thing, which was becoming a person who could actually build the things I kept trying to build. Those months had no meter on them. Nobody saw them. There was no clock on the wall reading 13.</p>
+  <p>That is the distinction I would draw now. Long work is measured by the meter. Hard work is what happens when the meter is off.</p>
+  <p>Hard work has three properties that long work does not. It is directed at the specific thing you are worst at, which is unpleasant, which is why people prefer long work. It has a test at the end that you did not write yourself. And it is mostly boring. Richard Hamming put the arithmetic on this in a talk at Bell Labs in 1986: given two people of roughly the same ability, if one works ten percent more than the other, the second will more than twice outproduce the first, because knowledge compounds like interest. People quote that line as a case for long hours. Read the rest of the talk and it is the opposite. Hamming&#x27;s ten percent is spent on the important problem while everyone else spends theirs on the urgent one. It is a claim about direction, not duration.</p>
+  <p>I will give you the version of this I trust most, because it is the one that cost me money. This summer we decided to find out how badly language models actually do on C++, rather than repeat what people were saying about it. There were 109 public benchmarks that touched the question. We reproduced them. Not read them, ran them, one at a time, checked the harness, checked the scoring, found where the numbers had been quietly inflated. It took weeks and there is no visible output from most of those days at all, because the output of reproducing a benchmark correctly is a number that matches the paper, which is nothing. That is what the unmetered day looks like. From the outside it is indistinguishable from doing nothing. From the inside it is the only reason I can now say what is true.</p>
+  <p>Here is the part I would rather not write.</p>
+  <p>The 13-hour day was partly a way of not deciding. If you fill every hour, you never have to ask which hour mattered, and you never have to face the possibility that the answer is two of them. A long day is an anaesthetic for that question. I did not know this while I was inside it. I found out when I left, and the first weeks on my own were terrifying in a way the floor never was, because nobody was setting the hours and I had to say, at 10am, what the work was. It turned out I had spent years being disciplined about showing up and almost no time being disciplined about choosing. Those are different muscles and I had only trained one.</p>
+  <p>So the useful thing I can give you is a test. At the end of a day, do not ask how long it was. Ask what you can now do that you could not do this morning, or what you now know that you did not know. If the answer is nothing, and the day was 13 hours, you have done long work. Some weeks that is the correct thing to do, because there are jobs that are just volume. But do not confuse it with the other thing, and do not let the meter tell you that you are working hard when you are working long.</p>
+  <p>Since July we have shipped a new version of what we are building every two or three days. It looks like the long kind of work, and there are plenty of long hours in it. But the clock is no longer what I watch. What I watch is whether each version fixes a thing a user hit that the last version did not. Some days that takes 14 hours. Some days it takes two and the rest of the day is me trying to look busy to myself.</p>
+  <p>The meter is still on the wall. I have just stopped reading it as a score. Anyone who has done both kinds of day knows which one they are actually afraid of.</p>
+</article>
+
+<!-- ============ ESSAY: good-enough ============ -->
+<article id="good-enough" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Good enough is a decision somebody makes</p>
+  <p>Every piece of work has a point where somebody says it is done, and that person is never the work.</p>
+  <p>We talk about standards as if they were properties of things. A high-quality codebase, a rigorous paper, a clean result. But a codebase does not have a standard. Someone looked at it and decided to stop. The standard is the stopping rule, and the stopping rule lives in a person. Which means the entire question of quality reduces to a social one: who is allowed to say not yet, and will they say it when it costs them.</p>
+  <p>Steve Jobs used to tell a story about his father, who built fences and cabinets, and who insisted on finishing the back of the fence and the inside of the drawer as carefully as the front. Nobody would see the back. The father&#x27;s answer was that he would know. People quote this as a story about craftsmanship. I read it as a story about who the inspector is. In the absence of a customer who will check, the father appointed himself, and held the appointment.</p>
+  <p>Here is the thing I noticed only recently. In most of my life the inspector was supplied. Exams have a grader. Trading has a P&amp;L. Compilers reject. I did not have to hold the standard because something outside me held it and I merely had to meet it. I assumed this meant I had high standards. What it meant was that I lived among strict inspectors. Take them away and you find out what you actually have.</p>
+  <p>I found out when I chose who to build for. The people who write C and C++ for a living are, as a group, the most sceptical programmers alive. They have spent careers watching tools promise things and then segfault, so their default answer to anything new is no, and their second answer is to tell you exactly why in public. When we started building for them we were scolded, a lot, and early. It would have been far more pleasant to build for a crowd that says nice work. I stayed with the sceptics on purpose, because a not yet from someone who does not want to give you a yes is the only kind that tells you anything.</p>
+  <p>That is the first practical thing I would offer. You do not raise your standards by resolving to. You raise them by choosing whose not yet you have to hear. Most people do the opposite. They pick an audience that will say it looks fine, because it is pleasant, and then they wonder why the work is fine.</p>
+  <p>The second practical thing is about the other direction, being the inspector for someone else, and this is where it costs.</p>
+  <p>Last year I spent two hours with an engineer trying to get him to try a tool. He writes C++ for a living, he had decided the tool was garbage on principle, and my case was only that he should run it once and judge from the output. Two hours. I could have stopped at ten minutes with &quot;fair enough&quot; and we would both have felt respected. I did not stop, because I was sure, and because a not yet that you abandon when it gets awkward is not a standard, it is a preference. He ran it. His verdict afterwards was one word, and it was not garbage.</p>
+  <p>I mention the two hours because that is the actual price of a standard. It is not the price of doing the work carefully. It is the price of the conversation in which you tell another person the thing is not done, and they do not want to hear it, and you stay in the room. Almost everyone who says they have high standards means they hold them for themselves in private. Very few hold them out loud for someone who can push back.</p>
+  <p>There is a third role, and it is the one nobody trains for. Being the person told not yet. A standard only survives between two people if the one hearing it can take a hard sentence as care rather than as attack, and the one saying it can say it without anger. Most teams fail on one side or the other. Either the not yet is delivered as contempt and the relationship pays for it, or it is received as contempt and never said again. Kind words are not the same as care, and harsh words are not the same as hatred. The teams that build things worth building are the ones where both people know that, and can criticise each other on Monday and eat together on Monday night.</p>
+  <p>Now the part where I am the one being inspected.</p>
+  <p>We keep a document in the company that lists every claim we are permitted to make in public, with the evidence for each, and a second list of claims we are banned from making because we cannot prove them. The banned list exists because of me. Under pressure, in a meeting, with a good story running, I have said the strong version of a thing when only the weak version was true. Not lies, exactly. Numbers I had heard once and repeated as if I had measured them. The kind of rounding-up that everyone in a room full of founders does, and that a room full of engineers would catch in one click. I caught myself doing it, more than once, and I did not trust myself to stop by resolving to. So we wrote it down and made the list the inspector. A claim is either on the permitted list with a source, or it does not leave my mouth.</p>
+  <p>I want to be clear about what that admits. It admits that my standard for my own words, unsupervised, was lower than my standard for other people&#x27;s code. That is an uncomfortable asymmetry to notice about yourself, and I think it is the common one. We are all strict about the things we are good at and lenient about the things we are merely doing.</p>
+  <p>So here is the test I use now. For any piece of work, ask three questions. Who will say not yet, by name. What will it cost them to say it. And when they say it, will I stay in the room. If the answer to the first question is nobody, the work has no standard, whatever it looks like. If the answer is somebody who will pay nothing for saying it, the standard is decorative. The standard is real only when the not yet is expensive and gets said anyway.</p>
+  <p>Jobs&#x27;s father had no customer for the back of the fence. He made one up and obeyed him for forty years. The fences are gone. The habit went into the son, and from the son into objects that more than a billion people have now held, every one of which has a back that was finished as carefully as the front. That is what a standard actually is. Not a property of the fence. A person who would not stop, and another person watching, who learned.</p>
+</article>
+
+<!-- ============ ESSAY: great-great-grandfather ============ -->
+<article id="great-great-grandfather" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Nobody remembers your great-great-grandfather</p>
+  <p>Name one thing your great-great-grandfather did. Not his name, which you may know. A thing he did, a fight he had, something he built or lost or was proud of.</p>
+  <p>Almost nobody can. Four generations is roughly a hundred years, and a hundred years is enough to erase a life completely, including from the memory of the people who exist only because it happened. His hardships are gone. His enemies are gone, and so is whatever they fought about. If he did something extraordinary, you do not know what it was. If he did nothing, the result is identical.</p>
+  <p>That is the forward half of the argument, and it is the half everyone knows. In a hundred years everyone you are trying to impress will be dead, everyone you envy will be dead, everyone you cannot stand will be dead, and nobody will remember any of it. People usually take this as a reason to relax. Nothing lasts, so why strain.</p>
+  <p>I take it the other way, and I want to explain why, because I think the relaxed reading is a mistake in arithmetic.</p>
+  <p>Here is the backward half, which almost nobody says. You exist because an unbroken chain of people survived long enough to have children, in conditions most of us would not last a winter in. Famines, wars, plagues, migrations on foot. Thousands of them, every one of whom made it to at least one child, or you are not here. Not one of them is remembered. Not one of them did it so that a descendant could give a moderate effort and go home on time.</p>
+  <p>Put the two halves together and the conclusion inverts. Forwards, nothing you do will be remembered, so there is no reputation to protect and no audience to perform for. Backwards, an enormous amount was paid for you to be standing here at all. The only thing that is actually disrespectful, in that light, is to be average on purpose. Not to fail. Failing is fine, most of the chain failed at most things. To coast. To be the link that had every advantage the chain had bought and decided to take it easy.</p>
+  <p>Seneca said the relaxed version was the mistake two thousand years ago. Life is long enough, he wrote, and a sufficiently generous amount has been given to us for the highest achievements if it were all well invested. His complaint was never that life is short. It was that people live as if the account were infinite, spend it on nothing they could name, and are surprised at the end. We are not given a short life but we make it short.</p>
+  <p>So this is how I actually use the hundred-year idea, and it is not for peace of mind. I use it to remove excuses. When I catch myself deciding that something is good enough, or that a thing can wait until tomorrow, or that a person&#x27;s opinion of me matters, I run the great-great-grandfather test. Will any of this exist in a hundred years? No. Then the opinion does not matter and I can stop managing it. But the effort is a different question, because the effort is the only part of this that was ever mine to decide, and it is the one thing the whole chain behind me had in common.</p>
+  <p>If nothing is going to matter, the correct response is not to do less. It is to do extraordinary things, because there is no longer any reason not to. The fear of looking foolish is gone, since nobody will remember the foolishness. The fear of failing publicly is gone, for the same reason. What remains is the work itself and whether you gave it everything, and that is the one thing you will know, in the only window in which knowing is possible, which is now.</p>
+  <p>Now the part I would rather leave out.</p>
+  <p>I did not learn this on a mountain. I learned it at three in the morning, writing a long, angry letter to someone I work with, about urgency and effort and standards, the kind of letter you write when you have four hours before the next call and cannot sleep. It was not a calm document. Somewhere in the last third I found myself writing the great-great-grandfather question, and the chain, and the line about nothing mattering in two hundred years, and I noticed as I wrote it that every sentence in the letter applied to me first. The person I was really furious with was the version of myself that had ever, on any day, given eighty percent and called it a day.</p>
+  <p>That is the honest origin of the idea in my life. It is not serenity about death. It is fury at waste, mine included, with mortality as the argument that finally made the fury make sense.</p>
+  <p>So I would offer this, to anyone who has ever heard &quot;nothing matters in the long run&quot; and felt it pull them toward the couch. You have read it backwards. Nothing lasting means nothing is at risk. No audience means no stage fright. No memory means no permanent record of the failures. Everything that usually stops a person from attempting something large has just been removed, and the only cost left is effort, which was always the cheapest thing you had.</p>
+  <p>Your great-great-grandfather is gone, along with everything he did. So is his father, and his. The chain does not remember its links. It only continues through the ones who gave it everything they had.</p>
+</article>
+
+<!-- ============ ESSAY: recruiting ============ -->
+<article id="recruiting" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Ambition is a recruiting problem</p>
+  <p>Nobody with a large ambition can execute it alone, which means every ambition is, underneath, a list of people you have not yet persuaded.</p>
+  <p>I want to start there because the usual conversation about ambition is about the size of the want. How big is your vision, how much do you want it, are you thinking big enough. Paul Graham&#x27;s essay on great work says ambitious people are, if anything, already too conservative about it. I agree with him and I think the framing still points the wrong way, because it treats ambition as a quantity inside one person. In practice it is a headcount. The moment your ambition exceeds what one person can do in a lifetime, and any ambition worth the name does, the entire problem becomes who else is going to do it with you, and why they would.</p>
+  <p>Here is the first time I understood this, though I did not have the words then.</p>
+  <p>In my second year at college my grades were bad, a seven out of ten, and I wanted to do a project that was beyond me. There was a classmate who had scored a perfect ten every semester. I did not try to become him. I went to him with a trade. He would build the thing correctly, because he could and I could not, and I would make the professor understand that it was usable, because I could and he could not. Everyone asked why those two were working together. What they were actually asking was why a ten would let a seven onto his roster. The answer is that I had found the one thing he needed and could not supply himself, and offered it plainly.</p>
+  <p>That trade is the whole mechanism. Ambition recruits by finding the thing a better person lacks and being that thing. It does not recruit by being impressive. The people you most need are precisely the ones who are not impressed by you, because they have their own list.</p>
+  <p>When I am asked now what I look for in a place to work, the answer has been the same for years: an interesting problem and a high-calibre team, in that order, and the order is slightly dishonest because the second one is the one I actually check first. A hard problem with weak people is a hard problem you will not solve. A modest problem with strong people becomes a harder problem within a month, because strong people are bored by modest problems and enlarge them. The team is the ambition. The problem is just where you point it.</p>
+  <p>Money is the part everyone gets wrong here, so let me put it in one sentence. Money is the cheapest resource you can acquire, and the people who are good enough to matter already know that. You cannot recruit them with it. You can pay them with it, which is different. What recruits them is the roster, meaning who else has already said yes, and the trade, meaning the specific thing they get to do here that they cannot do where they are. I have watched many pitches, some of them mine, that led with the size of the market and the money on the table, to people who nodded politely and went back to a job they were not thrilled with. The size of the want does not move them. The name of the person who joined last week does.</p>
+  <p>Now for what it costs, because this is where the essay has to earn something.</p>
+  <p>Ambition is expensive for the people around it and the expense is asymmetric. The person with the ambition is compensated in the currency they care about, which is the attempt itself. Everyone they recruit is paid in a currency they may not have chosen. A co-founder gives up a salary. A friend gives up evenings for a year. A family gives up a person who is present. And every one of those people agreed to the plan before it worked, on the strength of a story, told by someone who was, at the time, mostly guessing.</p>
+  <p>I treat people&#x27;s time as a resource to be sized. I know this about myself. When I am building a roster I think in terms of what each person can contribute and what it will cost to get them, and I do the arithmetic in my head while they are still talking. It is a useful habit and it is not a kind one. The people who have joined me on things did not experience themselves as a line in a plan. They experienced a friend asking. The gap between how I was thinking and how they were hearing is the actual cost of my ambition, and it is paid by them, not by me.</p>
+  <p>The honest version of this is that wanting a great deal makes you hard to be around. Not because ambitious people are unpleasant, though some are, but because a large want distorts every relationship it touches into a question of usefulness. You start to see people as either on the roster or not. The ones not on it get less of you. The ones on it get a version of you that is always, quietly, evaluating. I do not think this can be entirely fixed. I think it can be seen, and named, and paid for on purpose rather than by accident.</p>
+  <p>So here is what I would offer anyone who recognises the want in themselves.</p>
+  <p>First, stop measuring your ambition by its size and start measuring it by its roster. Write down the five people you would need and do not yet have. That list is your ambition, in its real form. If you cannot name them, the want is still a feeling rather than a plan.</p>
+  <p>Second, for each one, name the trade. Not what you can pay them. What they cannot get where they are that they could get with you. If there is no answer, you are not ready to ask.</p>
+  <p>Third, count the cost on their side of the ledger, not yours, and say it to them before they join. People will pay an extraordinary amount for a real attempt at something large. They will not forgive being told afterwards that they were a resource.</p>
+  <p>The ten-pointer and I finished the project. He went on to a firm where the bar is as high as any in the world, and I went on to do things that needed a great many other people to say yes. I still think about that trade, because it was the first time I understood that the want was never the hard part. The want I had at nineteen and the want I have now are the same size. What changed is the number of people who have agreed to carry it, and the honesty with which I asked them.</p>
+</article>
+
+<!-- ============ ESSAY: staying ============ -->
+<article id="staying" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Staying</p>
+  <p>Everything ever written against comfort was written by someone who had already left it, and you should discount the argument accordingly.</p>
+  <p>I say this as one of those people. I walked out of a well-paid seat in a good firm and I have spent a fair amount of the time since telling friends who are still in similar seats that they should do the same. Some of them have listened. I am not sure I was right, and I am fairly sure my reasons for saying it were not the reasons I gave.</p>
+  <p>So let me try to write the honest version, which has to start by taking comfort seriously as a thing a reasonable person might want.</p>
+  <p>A comfortable job is a thermostat. It holds the temperature. You arrive, the problems are the size you can handle, the pay arrives on the date it says, the people are the people from last year, and the future is a version of the present with slightly larger numbers. Nothing about this is contemptible. Most of human history was spent trying to build exactly this room and failing. Someone who has it and chooses to keep it is not asleep. They have looked at the alternatives, which are colder and less predictable, and preferred the room. That is a decision, and it deserves to be argued with as one, not sneered at.</p>
+  <p>The sneering is what people who have left do, and I want to explain where it comes from, because I have felt it from the inside.</p>
+  <p>When you leave a comfortable equilibrium you take on a debt. The debt is the possibility that you were wrong, and the only way to service it is to keep believing the room was worse than it was. So you tell the story of the room in a particular way. It was stagnant. Nobody there was growing. They did not even know what was happening outside. Some of this is true. Some of it is what you need to be true to sleep. And the person still in the room becomes, without meaning to, a threat to your story, because if they are fine then perhaps you did not have to go. So you tell them to leave. Not for them. For you.</p>
+  <p>I have done this. I have sat with former colleagues who are content, well paid, doing interesting enough work, and I have made the case that they are being left behind by a world they cannot see. The case is not false. But when I listen back to myself making it, what I hear is not concern. I hear a person defending a decision.</p>
+  <p>Here, then, is the argument I think actually holds, once you strip out the self-defence.</p>
+  <p>Comfort is not the problem. Not looking is the problem, and the two are usually confused because they tend to arrive together. The thermostat does not just hold the temperature inside the room. It removes your reason to check the temperature outside. Nothing in a comfortable job rewards you for knowing what is happening beyond it, and quite a lot punishes you for it, because knowing tends to make you restless and restlessness is inconvenient for everyone. So the person in the room stops looking. Not because they are lazy, but because looking has no payoff in the room and a real cost.</p>
+  <p>And this is the one thing I would actually say to someone who is staying. Stay, if the room is what you want. But keep a window. Know, specifically and currently, what is happening in your field outside the building. Know what the tools are, what people are paid elsewhere, what a version of you who left two years ago is doing now. Not so that you leave. So that staying remains a decision rather than a default. The test is simple. Can you describe, in detail, the life you are choosing not to have? If yes, you are staying. If no, you are not staying, you are just still there, and those are different conditions even though they look identical from the corridor.</p>
+  <p>The people I worry about are not the ones who chose the room. They are the ones who cannot say what is outside it. I have talked to engineers, good ones, who did not know that the tools they would be using in two years already existed, and were being used daily by people a few miles away. They were not unhappy. That is the point. Unhappiness would have made them look. Comfort had removed the one signal that might have.</p>
+  <p>Now the admission, since the essay has been circling it.</p>
+  <p>I left the room partly because I could not stop looking, and looking made the room intolerable in a way it had not been the year before. Nobody should mistake that for courage. It is closer to a temperament, and I am not sure it is a good one. The people who can hold the thermostat steady, do fine work inside it for twenty years, and go home to a life that is not the job, have something I do not have and probably cannot acquire. When I tell them to leave I am, in part, asking them to become like me so that I feel less alone in the cold. That is not advice. That is company-seeking.</p>
+  <p>So I have stopped giving the advice, mostly. What I do instead is describe the outside as accurately as I can, with numbers where I have them, and then stop. If the description makes someone restless, the restlessness is theirs and they will do something with it. If it does not, they have chosen the room with their eyes open, and that is the only version of staying I have no argument against.</p>
+  <p>I still think most rooms are colder than they feel from inside. I still think the thermostat is lying about the weather. But I have noticed that I think this most loudly on the days when my own decision is going badly, and that has taught me to hold the opinion more quietly. The person who stays and knows exactly what they are giving up has made a harder call than I did. I only had to leave. They have to keep choosing, every year, with the window open.</p>
+</article>
+
+<!-- ============ ESSAY: thin-wire ============ -->
+<article id="thin-wire" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Two nodes and a thin wire</p>
+  <p>Two people working on the same hard thing are two computers joined by a very thin wire, and almost every failure between them is a failure of the wire, not of the computers.</p>
+  <p>I started thinking about it this way when my co-founder and I ended up on opposite sides of the planet for a few months. Each of us had a full day of information the other did not: who we had met, what they had said, what had broken, what we now believed. Each of us also had a great deal of compute. What we did not have was bandwidth. A handful of messages a day, a call when the time zones allowed, and a shared channel that was always slightly behind. The wire was the constraint. Everything else was fine.</p>
+  <p>Once you see it as a wire, the rules for using it stop being manners and become engineering.</p>
+  <p>Claude Shannon showed in 1948 that every channel has a capacity, a hard ceiling on how much information can cross it per unit time, and that the way to approach the ceiling is to encode well, meaning to strip what the receiver already knows and send only what they do not. That is the whole of good communication between two people who work together, and most of us do the opposite. We send raw. We send the story in the order it happened to us, with the conclusion at the end where it arrived in our own heads, and the receiver has to decode the entire stream to find the one bit that changes what they do.</p>
+  <p>So the first rule is to compress before you send. Process the information fully on your own node first. What is the conclusion. What does the other person need to do differently because of it. What are the two or three reasons, in order of weight. Then send that, conclusion first, reasons after, in the fewest words that survive being misread. Consultants call this the pyramid principle. Engineers would call it not making the other side do your parsing for you. Either way, the goal is that the message changes the receiver&#x27;s state in one read, with no round trip.</p>
+  <p>The second rule is to send at all, and this is the one that actually kills teams.</p>
+  <p>A thin wire tempts you into batching. You will tell them later, at the call, in the summary, when you have the full picture. Meanwhile the other node is running on stale state. It is making decisions on what was true this morning, and the decisions are reasonable and wrong, and when the two of you finally sync, an afternoon of work has to be thrown away. The cost of an unsent message is not the message. It is every decision the other side made without it. On a thin wire, latency is more expensive than volume. A short message now beats a complete one tonight.</p>
+  <p>The third rule is that the wire carries more than facts, and this is the part I got wrong for years.</p>
+  <p>Two people on a hard problem are also each other&#x27;s only reliable source of energy. Belief, doubt, exhaustion, the sense that this is worth doing. All of it has to cross the same wire, and it is the traffic people are most reluctant to send. A message saying I do not believe in this right now, or I am running on empty, or I need you to take this one because I cannot, feels like a failure to transmit. It is the most important packet on the link. The alternative is that one node quietly degrades while the other one, seeing only silence, assumes everything is fine. Then one day the wire goes dead and nobody saw it coming, because the one signal that would have warned them was the one signal neither side would send.</p>
+  <p>The asymmetry is the tell. If you look at who initiates, who follows up, who reports after a meeting without being asked, you can read the health of the link in the traffic pattern alone. A healthy wire has traffic in both directions and roughly equal in volume. A dying one has a single node doing all the sending and slowly concluding that it is alone.</p>
+  <p>Now the confession this essay owes you.</p>
+  <p>I am the noisy node. I preach compression and I send raw. When something is urgent to me I write long, unstructured messages at bad hours, with the conclusion buried somewhere in the second half and the reasons scattered around it, and I call the length urgency. I once wrote a letter to a colleague at three in the morning that ran to several thousand words, and if I had applied my own first rule to it, it would have been three hundred and landed harder. I knew this while I was writing it. I sent it anyway, because sending fast felt more important than sending well, and because being the one who sends a great deal lets you feel like the one holding the link together. It is not the same thing. A node that floods the wire is also a node that is hard to hear.</p>
+  <p>So the rules apply to the person writing them, in the order they most need them. Compress. Send now. Send the energy too, in both directions, and notice when only one side is transmitting.</p>
+  <p>Two people is the smallest team that can do something large and the only team where the wire is a single strand. Everything the two of you will build has to fit through it. It is worth knowing what it can carry, and treating every message as though the capacity were real, because it is.</p>
+</article>
+
+<!-- ============ MEDIUM: m-regrets ============ -->
+<article id="m-regrets" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Regrets</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/regrets-ae5e70d951aa">Medium</a>. First published February 2024.</p>
+  <p>Just ask: What is the best possible action given my current situation?</p>
+  <p>Worrying about what could have been possible is suboptimal. The only thing you can do now is take action. Worrying will not change the situation. You could learn from the bad outcomes and make sure not to repeat them. But it is very easy to get drowned in unproductive worrying. It is a simple thought, but it took me a long time to internalize. Do not live in the past. Learn from it. Plan for the future. Focus on the present.</p>
+  <p>Initially, I wrote a lengthy article with examples and a flow of thoughts. However, I found that this single question was the best way to conclude everything.</p>
+</article>
+
+<!-- ============ MEDIUM: m-learned-helplessness-to-prioritization ============ -->
+<article id="m-learned-helplessness-to-prioritization" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Learned helplessness to prioritization</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/learned-helplessness-to-prioritization-350e3a9d3ce3">Medium</a>. First published February 2024.</p>
+  <p>Failure in the growth phase could lead you to learn helplessness. It’s a belief that your efforts do not matter. Whatever you do is either bound by luck or you were just not made for it.</p>
+  <p>It could manifest as lacking confidence in goals. With some people, I observed a sense of not doing things because of helplessness due to some past experiences. One classical example I find interesting is being mathematically challenged in college due to some past experiences and trauma with the subject. On the other hand, there is another behavior associated with helplessness. I had (and have to a certain extent) a habit of jumping at each and every opportunity. Pursuing every task. This could appear due to being excessively motivated, but this is helplessness in disguise. There is a difference between working hard and working hard towards every opportunity. The smokescreen of putting efforts in seems counterintuitive to being helpless.</p>
+  <p>I find a rather healthy approach, essentialism. I would prefer to have confidence in the opportunities that I am going to pick up. Being choosy about what to do and what not to do.</p>
+  <p>I used to jump on each and every opportunity I used to get for the second, third, fourth, and some portion of the fifth year. In the first year, I was all hyped up about startups. I had internalized zuck to start working on my startup in the first year and then drop out eventually. It was mostly because of the hype associated with it. In the end, I screwed academics, not to mention the startup, which never took off. I still remember a friend of mine justifying me getting out of the startup club because I don’t have the required skill. Even though I did not internalize the reasoning, I ended up quitting. I now understand the importance of questioning your actions. Even in my fifth year, I had the same reasoning for choosing a job over a startup.</p>
+  <p>Anyway, this led me to develop a sense of helplessness about my academic abilities. For the third and fourth years, I went head-on with each and every opportunity I got. Always doing courses, doing internships, attending all talks and workshops, and working on getting the next big thing. I did end up scoring straight As, getting fancy internships and useful tech skills, I regret the motivation behind doing so. I wasted many of those opportunities because I was not able to prioritize between impactful and not-so-impactful goals. I could not prioritize between doing something to its full extent and saying no to less important things. For example, I took around 15 full courses on Coursera. Most of them are very niche and are pretty much useless unless I want to be a dev-ops guy at Google. On the other hand, I did not spend more than an hour on my foreign exchange application, which I believe was a very important opportunity. At some point, I was working on three internships simultaneously because I did not want to choose between a research intern, an SDE intern, and a fancy crypto/blockchain intern.</p>
+  <h3>Organized chaos, prioritizing in unknown</h3>
+  <p>I first heard about this term during my stay at Optiver. I find it pretty interesting. Life is all good when you have a plan. You could prioritize and choose only the best outcome, and so on. But how do you deal with uncertainty? What do you do when you don’t know what you want? What do you do when you don’t know the possibilities and challenges of the future? Organized chaos suggested having a plan with as specific as possible a detailed goal. Create a period of organized chaos. For example, if you have a big project, break it into small milestones, be very detailed while specifying them, and then go bananas in between. Explore everything within the boundaries you have set. Have chaos in a very organized and structured way. In the scope of previous discussions, let’s say I have a milestone, say, I want to improve my strength. I find running a good proxy for strength. I plan to run a half-marathon (21 km) in 4 months. On day 1, I could barely run 2 km without collapsing. I set up my milestones at 5, 10, 12, 15, 18, and 20 km, distributed over 4 months. Within the milestones, I kept the freedom to explore all the tips, hacks, and tricks I found on Reddit and YouTube. Those gel insoles, which could help you run for a longer duration? Try them. Does having a pre-workout shake help? Sure, try it. BCCA tablets? Why not. Some of them worked, but most did not. I am at the 10 km mark since I started 25 days ago. More to go.</p>
+  <p>Experimenting with a ton of stuff while not diverting from the goal was my takeaway from organized chaos. I learn a lot from chaos, but it is very easy for me to get diverted into something way away from the original aim. In this aspect, organized chaos helped me the most. My earlier approach would have easily led me to the hellhole of researching niche supplements for the body and not running after one or two weeks after getting overwhelmed with information.</p>
+  <p>In the end, I am currently obsessed with working on my past mistakes and burdens, which I am carrying over, knowingly or unknowingly. The inability to prioritize was one of the big flaws I had (and still have). Researching, talking to psychiatrists, and reading on this topic immensely changed my perspective. If you want to read more, you could try the following books: The 4-Hour Workweek by Tim Ferriss, Essentialism by Greg McKeown, Power of Now by Eckhart Tolle, and the 7 Habits of Highly Effective People by Stephen Covey.</p>
+</article>
+
+<!-- ============ MEDIUM: m-thoughts-on-goal-achieving ============ -->
+<article id="m-thoughts-on-goal-achieving" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Thoughts on goal-achieving</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/thoughts-on-goal-achieving-adad07656826">Medium</a>. First published January 2024.</p>
+  <h3>Motivation as a go-to tool</h3>
+  <p>For most of my working life, motivation was my go-to mechanism for goal-achieving. You aim, plan, and then execute. If you don&#x27;t feel like doing something, you push yourself. But eventually, I observed that motivation is not feasible for long-term goals.</p>
+  <p>In the past, I have been motivated to pursue some goals. I will be very motivated and full of energy when I start a project. But once I get over the obsession, I will start to procrastinate. I will try to push myself with some motivational literature, books, blogs, and videos. It will work for a short while. But next time, when procrastination kicks in, I will try to find something else to work on. My brain would come up with endless excuses not to do it. And in the end, I would simply avoid it. I have an endless list of projects I took on to work on, photography skills, exercises, meditation, but left incomplete.</p>
+  <p>Motivation is bursty. Motivation comes in spikes and goes. Motivation is not sustainable.</p>
+  <h3>Having a system instead of conscious efforts</h3>
+  <p>Taking from the book thinking fast and slow, we have two patterns in which we behave. One is with conscious efforts, when we can think rationally and are aware of our actions, each action requires effort. The second is autopilot mode, when our subconscious mind takes over and is effortless.</p>
+  <p>Having positive systems where you take actions without making conscious efforts is an optimal strategy. Advertisers nudge you towards certain purchases. “Opt for marketing” is generally enabled by default on most sign-up pages. Most do not make the effort to consciously uncheck the box or even notice it.</p>
+  <p>For me, going to the library is one such positive system. Once I go to the library, I usually stay for a productive session and cannot sleep. On the other hand, staying in a hostel room is a full-proof system to fall asleep. Staying in the room leads to sneaking into bed after a while, which then leads to sleeping or, even worse, doomscrolling. Opening Instagram reels or YouTube shorts is one such system that could easily capture someone for hours.</p>
+  <h3>The power of habits and routines</h3>
+  <p>Systems are created with habits. The book “Atomic Habit” is a great read and explains why habits shape most of our lives. Habit creation requires some conscious effort and is slow. It takes some weeks to start a new habit and for it to become a routine. Once a routine is created, an autonomous system is built that can work wonders towards a particular goal.</p>
+  <p>I used to struggle with starting my day early. I noticed that even if I used to wake up early, I used to sleep again. This cycle would lead me to wake up 4 to 5 hours later than a normal wake-up time. I started with the habit of brushing my teeth immediately after waking up. Once I brush my teeth, it becomes hard to fall asleep easily. This habit nudges me to work on something in the morning and leads to much more productive day.</p>
+  <h3>On a microscale, the role of emotions</h3>
+  <p>We have rational thinking, which could be overtaken by emotions.</p>
+  <p>Thinking rationally is hard when emotions are in charge. The brain plays tricks with random bullsh*t logic and tries to convince itself.</p>
+  <p>Some time back, I started to take cold showers. I read about the benefits, and I was convinced enough that it would help me stay disciplined, have focus for an extended period of time, and improve my metabolism in general. The first few days were great; there was a sense of excitement. However, one day, some thoughts started to pop up. “I could stay focused without the showers, too.” “Why hate me first thing in the morning?” “I slept late at night, so I could skip the day.”</p>
+  <p>My personal favorite rule to avoid such scenarios is the “5-minute rule.” When you are faced with something unpleasant, you set a goal to work for just 5 minutes. After that, you make a decision if you want to still avoid it. This rule works wonders for me. The initial delta to start something is the hardest part. Once I start to work, the rest is effortless. Our brain associates the initial pain with the entire duration, hence the resistance.</p>
+  <p>Motivation follows action, not the other way around.</p>
+  <p>With my limited exposure to religious texts, I find the way religions have survived interesting. I do not agree with some of the values religions advocate, but the way in which religions achieve these values is noteworthy. Religions require you to have faith in their teaching. Do your duties. Do not worry about the outcomes; just do what is required. Trust the process. Have faith.</p>
+  <p>Once you set the goal, do not question the process on the spur of your emotions. Show faith in the systems you created when you were rational. Take that leap of faith.</p>
+  <h3>Exposure and numbing the emotions</h3>
+  <p>I found that sometimes fear is one of the emotions that comes with achieving a goal. Fear could appear in the form of procrastination. I used to procrastinate on an aspect of my life. Taking psychotherapy led me to an interesting observation.</p>
+  <p>We sometimes procrastinate because of some trauma or fear associated with it. It could be due to very small actions, incidents, or behaviors in the past that have stayed inside you for a long time.</p>
+  <p>One of the ways to tackle fear is through continuous and incremental exposure. Continuous exposure helps to understand and look at fear from a rational perspective. This is the most helpful way I have found to tackle any fear. Nothing else will help more than taking action. Planning to do something is not doing it; thinking about something is not doing it; stressing over it is not doing it; it&#x27;s the action that does the magic.</p>
+  <p>PS: I plan to write more.</p>
+</article>
+
+<!-- ============ MEDIUM: m-taking-a-different-route ============ -->
+<article id="m-taking-a-different-route" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Taking a different route</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/taking-a-different-route-16c3e0abfabf">Medium</a>. First published June 2022.</p>
+  <p>This summer I have decided to take a different route than usual. I cancelled a highly paid intern for an unpaid intern. I cancelled another intern at CMU. This time I am choosing on skills over money/tags.</p>
+  <p>Instead of multiplexing on 3 different tasks. I am choosing to focus on just a single one.</p>
+  <p>I would have called myself stupid if I had shown this decision to my 2nd year self or even to my 2 months earlier version.</p>
+  <p>I am slowing down. Going through the dip. After so many advices I am finally trying to focus on single task than multiplexing. I still feel bad for not going for the other two. I can easily multiplex at least one of them. At least let me take the money?</p>
+  <p>It’s a hard choice. The idea is focussing on one task should give more benefits than combined. Honestly I am bit skeptical about having dependence on single thing. What if it fails? What if things don’t work out? Shouldn’t I keep some backup? But I have never tried not multiplexing. How would I know the other side before trying it out?</p>
+  <p>I am taking the leap of faith. If things won’t work out as I expect then let it be. Maybe having a backups made me feel too much secure. I will be insecure this time. I will be in uncertainty. If this fails then I won’t have another option to fall back.</p>
+  <p>Let’s see how it goes.</p>
+  <p>EDIT: It did turn out lot better than I could have imagined.</p>
+</article>
+
+<!-- ============ MEDIUM: m-how-i-deal-with-overthinking ============ -->
+<article id="m-how-i-deal-with-overthinking" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">How I deal with Overthinking</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/how-i-deal-with-overthinking-acc2c3e853fa">Medium</a>. First published November 2021.</p>
+  <p>Writing frequently helps to free out things.</p>
+  <p>I tend to overthink a lot. Overthinking consumes a lot of energy, time and resources yet achieves nothing. I can’t recall countless hours I spent overthinking. I found myself struggling into the endless loops of thinking. During exams. During late night self talks. During crisis. And its hard to get outside. Its hard to get clarity.</p>
+  <p>Writing helps in getting clarity. The Feynman Technique goes in the similar direction. It goes as, When you want to learn something, best way is to explain it to someone else. One, you get a lot of clarity in trying to prepare while presenting. You will learn a lot in anticipating what the other person might ask you. Two, there will be your respect associated with it. You will work a lot more when it comes to cast desired impression on someone.</p>
+  <p>Also, learning is an active process. It does not matter the format in which you receive information. Since the introduction of mass communication things like radios, television and then internet, we did not see massive change in learning process. Yes, the education became more accessible than earlier. More people got access to high quality literature. But those who already had access to did not change much.</p>
+  <p>Seeing a animation vs seeing picture with a description does not make difference in your test score. Why? Because learning happens when you put efforts. Seeing image with description forces you to visualize animation by putting your efforts and that’s what helps you understand. Its not about the destination but about what you become in the process.</p>
+  <p>This being said, writing helps you to get into the process of actively learn from your thoughts. Writing helped me during some tough decisions, during seemingly hard problems in exams. I strongly urge you to try this. Hope that helps anyone reading(?) this post.</p>
+</article>
+
+<!-- ============ MEDIUM: m-people ============ -->
+<article id="m-people" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">People</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/people-9724f00ead00">Medium</a>. First published November 2021.</p>
+  <p>People are people. Living people. People with feelings, self-respect, ambition. People want to be treated with respect, liked, given attention.</p>
+  <p>People aren’t a thing whom you can “win” or “earn” or “achieve”. You can’t impress everyone except worsen your impression in an attempt to to do so.</p>
+  <p>To be in a group increases survival chances of the group as a whole and species survives. This evolutionary pressure made us social animal. Hard wired with an objective to be in a group. To be a part of the group. Not to be different from group. Accepted by the group.</p>
+  <p>But we have evolved beyond a point, that we don’t need such pressures. Our efforts to remain in the group costs us our attention, energy and time from things that matters and leaves us with pain when the group rejects you.</p>
+  <p>You are unique. Don’t pressurize yourself to do things that you don’t like. Don’t force yourself to get attention that will increase jealousy and envy. Couple of best friends are much better than room of friends. Circle which understands you. With whom you are comfortable.</p>
+  <p>It’s okay to be different. It’s okay to not being liked by everyone. It’s okay to be not okay. Enjoy your own company. Spend time with yourself. Discover your true self. Don’t be too harsh on yourself in pursing illusions. The world is too large to be impressed on individual basis. Impress the world with your actions. Do what you like. Do it to the best. Greatness doesn’t need audience. It just needs doing what you love to the best.</p>
+</article>
+
+<!-- ============ ADVICE ============ -->
+<section id="advice" class="page">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Principles</h2>
+  <ol class="principles">
+    <li>Ship, then improve. Get things to exist, then optimize. Ten bad attempts come before good, so keep each attempt short but real, and put it out. Publish ten videos. Do not rework one video ten times. Talk in outputs, not efforts.</li>
+    <li>Aim high. Set ambitious goals, ones with less than a 10% chance of success. Do not settle for mediocre things.</li>
+    <li>Nothing lasts, so go nuts. Everyone I love or hate will be gone in 100 years. Embarrassment and fear are states of mind, and nobody will remember the failure. Learn from it and do not get demotivated. Do not worry about your reputation. You have none. Do great things, do what you love, and live life on extreme mode. Comfort kills, and there is no fun in comfort.</li>
+    <li>Work with smart people. They raise the bar. Align on values first, choose positive intent, and do not waste time on stupid things.</li>
+    <li>Creativity is making the whole more than its pieces alone.</li>
+  </ol>
+</section>
+
+
+</main>
+
+</body>
+</html>
