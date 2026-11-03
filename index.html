@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Essays on speed, verification, and games with verdicts.">
+<meta name="description" content="Essays and notes by Anirudha Kulkarni.">
 <link rel="canonical" href="https://anirudhakulkarni.io/">
 <title>Anirudha Kulkarni</title>
 <style>
@@ -45,11 +45,11 @@ body:not(:has(.page:target)) #home{display:block}
 
 /* essay index */
 .index{list-style:none; padding:0; margin:0 0 3.5rem}
-.index li{display:grid; grid-template-columns:3.4em 1fr; gap:0 .5rem; padding:.42rem 0; border-top:1px solid var(--rule)}
+.index li{padding:.42rem 0; border-top:1px solid var(--rule)}
 .index li:last-child{border-bottom:1px solid var(--rule)}
-.index .yr{color:var(--muted); font-variant-numeric:tabular-nums}
 .index a{text-decoration:none; color:inherit}
 .index a:hover{text-decoration:underline}
+.index .tag{color:var(--muted); font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; margin-left:.7rem}
 
 .foot{color:var(--muted); font-size:.92rem; display:flex; flex-wrap:wrap; gap:0 1.35rem}
 .foot a{color:inherit; text-decoration:none}
@@ -59,21 +59,14 @@ body:not(:has(.page:target)) #home{display:block}
 
 /* essay page */
 .essay h2{margin-bottom:.15rem}
-.essay .title{font-size:1.55rem; line-height:1.25; margin:0 0 .4rem; text-wrap:balance; font-weight:normal}
-.essay .meta{color:var(--muted); font-size:.92rem; margin:0 0 2.4rem}
+.essay .title{font-size:1.55rem; line-height:1.25; margin:0 0 2.4rem; text-wrap:balance; font-weight:normal}
 .essay p{max-width:32em}
+.essay .meta{color:var(--muted); font-size:.92rem; margin:-1.9rem 0 2.4rem}
+.essay .meta a{color:inherit}
+.essay h3{font-size:1rem; font-weight:normal; font-style:italic; margin:2rem 0 .7rem}
 .draft{background:var(--draft); border-left:2px solid var(--rule); padding:.55rem .9rem; color:var(--muted); font-size:.92rem; margin:0 0 2.2rem}
 hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
 
-/* work ledger */
-.ledger{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.83rem; line-height:1.75; overflow-x:auto; margin:0 0 2rem}
-.ledger table{border-collapse:collapse; width:100%; min-width:30em}
-.ledger td{padding:.15rem .9rem .15rem 0; vertical-align:top; border-top:1px solid var(--rule)}
-.ledger td:first-child{color:var(--muted); white-space:nowrap; width:4.5em; font-variant-numeric:tabular-nums}
-.ledger tr:last-child td{border-bottom:1px solid var(--rule)}
-.ledger .group td{border-top:0; padding-top:1.4rem; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; font-size:.75rem}
-.ledger .group + tr td{border-top:1px solid var(--rule)}
-.ph{color:var(--muted)}
 
 /* lists on evergreen pages */
 .plain{padding-left:1.1em; margin:0 0 1.5rem}
@@ -110,6 +103,9 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
 /* ascii portrait */
 .masthead{display:flex; align-items:flex-start; justify-content:space-between; gap:1.5rem; margin-bottom:3.25rem}
 .masthead > div{flex:1 1 auto}
+.masthead > .pic{flex:0 0 auto}
+.principles{padding-left:1.4em}
+.principles li{margin-bottom:1.15rem; padding-left:.3em}
 .masthead .lede{margin-bottom:0}
 .portrait{margin:0; color:var(--muted); font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:6.5px; line-height:1.15; letter-spacing:.02em; user-select:none; opacity:.85}
 
@@ -135,7 +131,7 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
   <div class="masthead">
     <div>
       <h1><a href="#home">Anirudha Kulkarni</a></h1>
-      <p class="lede">I write occasionally, mostly about speed, verification, and what games with verdicts do to the people who play them.</p>
+      <p class="lede">In 100 years nobody will remember any of this. That makes me less afraid and more ambitious. Life is short and there is no fun in comfort. I want to live mine on extreme mode. I like to write, run, box, and play table tennis and badminton.</p>
     </div>
     <div class="pic" tabindex="0" title="don't">
       <pre class="portrait" aria-hidden="true">        .+#####*+-..
@@ -191,268 +187,245 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
     </div>
   </div>
 
-  <h2>Essays</h2>
-  <ul class="index">
-    <li><span class="yr">2026</span><a href="#unmetered-day">The unmetered day</a></li>
-    <li><span class="yr">2026</span><a href="#good-enough">Good enough is a decision somebody makes</a></li>
-    <li><span class="yr">2026</span><a href="#great-great-grandfather">Nobody remembers your great-great-grandfather</a></li>
-    <li><span class="yr">2026</span><a href="#recruiting">Ambition is a recruiting problem</a></li>
-    <li><span class="yr">2026</span><a href="#staying">Staying</a></li>
-    <li><span class="yr">2026</span><a href="#thin-wire">Two nodes and a thin wire</a></li>
-  </ul>
-
   <p class="foot">
-    <a href="#notes">Notes</a>
+    <a href="#essays">Essays</a>
     <a href="#likes">Things I want to keep</a>
-    <a href="#questions">Questions</a>
-    <a href="#advice">Advice</a>
-    <a href="#work">Work</a>
-    <a href="#now">Now</a>
-    <a href="mailto:hello@anirudhakulkarni.com">Email</a>
+    <a href="#advice">Principles</a>
+    <a href="mailto:kulkarni.anirudha.8@gmail.com">Email</a>
   </p>
 </section>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- ============ ESSAYS ============ -->
+<section id="essays" class="page">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essays</h2>
+  <ul class="index">
+    <li><a href="#borrowed-growth">Borrowed growth</a></li>
+    <li><a href="#unmetered-day">The unmetered day</a></li>
+    <li><a href="#good-enough">Good enough is a decision somebody makes</a></li>
+    <li><a href="#great-great-grandfather">Nobody remembers your great-great-grandfather</a></li>
+    <li><a href="#recruiting">Ambition is a recruiting problem</a></li>
+    <li><a href="#staying">Staying</a></li>
+    <li><a href="#thin-wire">Two nodes and a thin wire</a></li>
+    <li><a href="#m-regrets">Regrets</a><span class="tag">Medium</span></li>
+    <li><a href="#m-learned-helplessness-to-prioritization">Learned helplessness to prioritization</a><span class="tag">Medium</span></li>
+    <li><a href="#m-thoughts-on-goal-achieving">Thoughts on goal-achieving</a><span class="tag">Medium</span></li>
+    <li><a href="#m-taking-a-different-route">Taking a different route</a><span class="tag">Medium</span></li>
+    <li><a href="#m-how-i-deal-with-overthinking">How I deal with Overthinking</a><span class="tag">Medium</span></li>
+    <li><a href="#m-people">People</a><span class="tag">Medium</span></li>
+  </ul>
+</section>
 
 <!-- ============ LIKES ============ -->
 <section id="likes" class="page likes">
   <a class="back" href="#home">Anirudha Kulkarni</a>
   <h2>Things I want to keep</h2>
+  <p class="lede">I run, box, and play table tennis and badminton. I have travelled solo to 12 countries so far, and I am a professional scuba diver. I watch action movies and read books, mostly Dan Brown and Harry Potter. Death Note and Attack on Titan are my favourite anime.</p>
   <div class="group">
-  <h3>Lines I keep</h3>
     <blockquote class="quote"><p>Make it work, make it right, make it fast.</p><cite>Kent Beck</cite></blockquote>
     <blockquote class="quote"><p>A complex system that works is invariably found to have evolved from a simple system that worked.</p><cite>John Gall, Systemantics</cite></blockquote>
     <blockquote class="quote"><p>If you do not work on an important problem, it&#x27;s unlikely you&#x27;ll do important work.</p><cite>Richard Hamming</cite></blockquote>
     <blockquote class="quote"><p>The first principle is that you must not fool yourself, and you are the easiest person to fool.</p><cite>Richard Feynman</cite></blockquote>
     <blockquote class="quote"><p>Make something people want.</p><cite>Paul Graham</cite></blockquote>
+    <blockquote class="quote"><p>Pessimists sound smart. Optimists make money.</p><cite>Nat Friedman</cite></blockquote>
     <blockquote class="quote"><p>When in doubt, use brute force.</p><cite>Ken Thompson</cite></blockquote>
     <blockquote class="quote"><p>It&#x27;s easier to ask forgiveness than it is to get permission.</p><cite>Grace Hopper</cite></blockquote>
     <blockquote class="quote"><p>The impediment to action advances action. What stands in the way becomes the way.</p><cite>Marcus Aurelius</cite></blockquote>
     <blockquote class="quote"><p>It is not that we have a short time to live, but that we waste a lot of it.</p><cite>Seneca</cite></blockquote>
     <blockquote class="quote"><p>I can do hard things, and so can you.</p><cite>Mark Dowdle</cite></blockquote>
-  </div>
-  <div class="group">
-  <h3>UFC</h3>
   <div class="grid">
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/ocsu8P4-GS4?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/ocsu8P4-GS4/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Robbie Lawler vs Rory MacDonald 2" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=ocsu8P4-GS4">Robbie Lawler vs Rory MacDonald 2</a><span>UFC 189 · 2015 · 22 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/IPSBO6OkPaI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/IPSBO6OkPaI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Margaret Hamilton, 1936 to 2026" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=IPSBO6OkPaI">Margaret Hamilton, 1936 to 2026</a><span>PBS NewsHour · 46 sec</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/rLuppO32rUI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/rLuppO32rUI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Dan Henderson vs Shogun Rua" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=rLuppO32rUI">Dan Henderson vs Shogun Rua</a><span>UFC 139 · 2011 · 35 min</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/JuBBIJ7adjM?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/JuBBIJ7adjM/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Khabib Nurmagomedov vs Conor McGregor" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=JuBBIJ7adjM">Khabib Nurmagomedov vs Conor McGregor</a><span>UFC 229 · 2018 · 19 min</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/BUxmDLIKb5E?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/BUxmDLIKb5E/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Justin Gaethje vs Tony Ferguson" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=BUxmDLIKb5E">Justin Gaethje vs Tony Ferguson</a><span>UFC 249 · 2020 · 35 min</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/0UYEVxvh2kI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/0UYEVxvh2kI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Jon Jones vs Daniel Cormier 2" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=0UYEVxvh2kI">Jon Jones vs Daniel Cormier 2</a><span>UFC 214 · 2017 · 18 min</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/W7StRPCtF-E?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/W7StRPCtF-E/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Matt Hughes vs Georges St-Pierre 1" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=W7StRPCtF-E">Matt Hughes vs Georges St-Pierre 1</a><span>UFC 50 · 2004 · 17 min</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/cUXVXvRUllQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/cUXVXvRUllQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Masvidal over Askren in five seconds" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=cUXVXvRUllQ">Masvidal over Askren in five seconds</a><span>UFC 239 · 2019 · fastest KO in UFC history</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/VbWOjyngYuQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/VbWOjyngYuQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Anderson Silva&#x27;s front kick on Vitor Belfort" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=VbWOjyngYuQ">Anderson Silva&#x27;s front kick on Vitor Belfort</a><span>UFC 126 · 2011 · 40 sec</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/qu4YNpPMNyI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/qu4YNpPMNyI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Edson Barboza, wheel kicks" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=qu4YNpPMNyI">Edson Barboza, wheel kicks</a><span>UFC · 49 sec</span></figcaption>
-    </figure>
-  </div>
-  </div>
-  <div class="group">
-  <h3>David Goggins</h3>
-  <div class="grid">
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/BvWB7B8tXK8?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/BvWB7B8tXK8/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Joe Rogan Experience #1212" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=BvWB7B8tXK8">Joe Rogan Experience #1212</a><span>PowerfulJRE · 2018 · 2 hr 17 min</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/78I9dTB9vqM?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/78I9dTB9vqM/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Impact Theory with Tom Bilyeu" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=78I9dTB9vqM">Impact Theory with Tom Bilyeu</a><span>2017 · 57 min</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/vyJ_hhninDw?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/vyJ_hhninDw/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Strengthen your mind" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=vyJ_hhninDw">Strengthen your mind</a><span>Big Think · 2017 · 8 min</span></figcaption>
-    </figure>
-  </div>
-  <ul class="links">
-    <li><a href="https://www.instagram.com/davidgoggins/">Instagram</a><span>@davidgoggins</span></li>
-  </ul>
-  </div>
-  <div class="group">
-  <h3>Mark Dowdle</h3>
-  <div class="grid">
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/FL_7qfO1KVg?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/FL_7qfO1KVg/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="I went back to the race that almost broke me" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=FL_7qfO1KVg">I went back to the race that almost broke me</a><span>Arrowhead 135 film · 2026 · 50 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/sBSQfchNqhE?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/sBSQfchNqhE/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Alex Karp doing push-ups on stage" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/shorts/sBSQfchNqhE">Alex Karp doing push-ups on stage</a><span>Palantir CEO · 5 sec</span></figcaption>
     </figure>
     <figure class="like">
       <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/ypEqOx5MYZg?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/ypEqOx5MYZg/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Rich Roll Podcast" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
       <figcaption><a href="https://www.youtube.com/watch?v=ypEqOx5MYZg">The Rich Roll Podcast</a><span>306 miles in 73 hours · 2026 · 1 hr 19 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/djjWsQy9RgQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/djjWsQy9RgQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Backyard Ultra: Finding the limit" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=djjWsQy9RgQ">Backyard Ultra: Finding the limit</a><span>what the format is · 2020 · 55 min</span></figcaption>
-    </figure>
-  </div>
-  <ul class="links">
-    <li><a href="https://www.instagram.com/mark.dowdle/">Instagram</a><span>@mark.dowdle</span></li>
-    <li><a href="https://mark-dowdle.com/">mark-dowdle.com</a><span>Backyard ultras, Arrowhead 135</span></li>
-  </ul>
-  </div>
-  <div class="group">
-  <h3>Extreme sports</h3>
-  <div class="grid">
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/6iM6M_7wBMc?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/6iM6M_7wBMc/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Alex Honnold on free soloing El Capitan" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=6iM6M_7wBMc">Alex Honnold on free soloing El Capitan</a><span>TED · 2018 · 11 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/0UYEVxvh2kI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/0UYEVxvh2kI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Jon Jones vs Daniel Cormier 2" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=0UYEVxvh2kI">Jon Jones vs Daniel Cormier 2</a><span>UFC 214 · 2017 · 18 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/XdOzbM_7GMI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/XdOzbM_7GMI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Nose in under two hours" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=XdOzbM_7GMI">The Nose in under two hours</a><span>Honnold and Caldwell · 2018 · time-lapse</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/BUxmDLIKb5E?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/BUxmDLIKb5E/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Justin Gaethje vs Tony Ferguson" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=BUxmDLIKb5E">Justin Gaethje vs Tony Ferguson</a><span>UFC 249 · 2020 · 35 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/xQ_IQS3VKjA?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/xQ_IQS3VKjA/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Danny MacAskill: The Ridge" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=xQ_IQS3VKjA">Danny MacAskill: The Ridge</a><span>Isle of Skye · 2014 · 7 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/FL_7qfO1KVg?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/FL_7qfO1KVg/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="I went back to the race that almost broke me" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=FL_7qfO1KVg">I went back to the race that almost broke me</a><span>Arrowhead 135 film · 2026 · 50 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/FHtvDA0W34I?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/FHtvDA0W34I/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Felix Baumgartner jumps from 128,000 feet" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=FHtvDA0W34I">Felix Baumgartner jumps from 128,000 feet</a><span>Red Bull Stratos · 2012</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/W7StRPCtF-E?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/W7StRPCtF-E/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Matt Hughes vs Georges St-Pierre 1" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=W7StRPCtF-E">Matt Hughes vs Georges St-Pierre 1</a><span>UFC 50 · 2004 · 17 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/CIXbZPHLv2o?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/CIXbZPHLv2o/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Sebastian Steudtner, 86 feet at Nazaré" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=CIXbZPHLv2o">Sebastian Steudtner, 86 feet at Nazaré</a><span>largest wave ever surfed · 2020</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/4RDBJ91jS10?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/4RDBJ91jS10/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Five real diving accidents and what they taught" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=4RDBJ91jS10">Five real diving accidents and what they taught</a><span>Dive SAGA · 15 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/uQITWbAaDx0?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/uQITWbAaDx0/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Guillaume Néry, base jump into Dean&#x27;s Blue Hole" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=uQITWbAaDx0">Guillaume Néry, base jump into Dean&#x27;s Blue Hole</a><span>on one breath · 4 min</span></figcaption>
-    </figure>
-  </div>
-  </div>
-  <div class="group">
-  <h3>Computers, from the start</h3>
-  <div class="grid">
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/XvDZLjaCJuw?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/XvDZLjaCJuw/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The UNIX System: Making Computers Easier to Use" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=XvDZLjaCJuw">The UNIX System: Making Computers Easier to Use</a><span>Bell Labs film · 1982 · 23 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/rLuppO32rUI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/rLuppO32rUI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Dan Henderson vs Shogun Rua" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=rLuppO32rUI">Dan Henderson vs Shogun Rua</a><span>UFC 139 · 2011 · 35 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/yJDv-zdhzMY?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/yJDv-zdhzMY/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Mother of All Demos" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=yJDv-zdhzMY">The Mother of All Demos</a><span>Douglas Engelbart · 1968 · 1 hr 40 min</span></figcaption>
-    </figure>
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/EY6q5dv_B-o?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/EY6q5dv_B-o/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Ken Thompson interviewed by Brian Kernighan" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=EY6q5dv_B-o">Ken Thompson interviewed by Brian Kernighan</a><span>VCF East · 2019 · 1 hr 3 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/ocsu8P4-GS4?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/ocsu8P4-GS4/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Robbie Lawler vs Rory MacDonald 2" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=ocsu8P4-GS4">Robbie Lawler vs Rory MacDonald 2</a><span>UFC 189 · 2015 · 22 min</span></figcaption>
     </figure>
     <figure class="like">
       <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/si9iqF5uTFk?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/si9iqF5uTFk/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Grace Hopper on future possibilities" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
       <figcaption><a href="https://www.youtube.com/watch?v=si9iqF5uTFk">Grace Hopper on future possibilities</a><span>NSA lecture · 1982 · 48 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/LnzuMJLZRdU?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/LnzuMJLZRdU/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Hello, world from scratch on a 6502" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=LnzuMJLZRdU">Hello, world from scratch on a 6502</a><span>Ben Eater · 2019 · 27 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/PQjaLhbVRr0?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/PQjaLhbVRr0/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Dave Not Coming Back" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=PQjaLhbVRr0">Dave Not Coming Back</a><span>Bushman&#x27;s Hole, 270 m · 2005 · full film, 1 hr 35 min</span></figcaption>
     </figure>
     <figure class="like">
-      <a class="frame img" href="likes/margaret-hamilton.jpg"><img src="likes/margaret-hamilton.jpg" alt="Margaret Hamilton next to the Apollo guidance code" loading="lazy"></a>
-      <figcaption>Margaret Hamilton next to the Apollo guidance code<span>MIT, 1969</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/qu4YNpPMNyI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/qu4YNpPMNyI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Edson Barboza, wheel kicks" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=qu4YNpPMNyI">Edson Barboza, wheel kicks</a><span>UFC · 49 sec</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/IPSBO6OkPaI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/IPSBO6OkPaI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Margaret Hamilton, 1936 to 2026" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=IPSBO6OkPaI">Margaret Hamilton, 1936 to 2026</a><span>PBS NewsHour · 46 sec</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/NjIhmzU0Y8Y?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/NjIhmzU0Y8Y/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Steve Jobs: a bicycle for the mind" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=NjIhmzU0Y8Y">Steve Jobs: a bicycle for the mind</a><span>1 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/JuBBIJ7adjM?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/JuBBIJ7adjM/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Khabib Nurmagomedov vs Conor McGregor" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=JuBBIJ7adjM">Khabib Nurmagomedov vs Conor McGregor</a><span>UFC 229 · 2018 · 19 min</span></figcaption>
     </figure>
     <figure class="like">
       <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/oE2uls6iIEU?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/oE2uls6iIEU/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Grace Hopper on Letterman" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
       <figcaption><a href="https://www.youtube.com/watch?v=oE2uls6iIEU">Grace Hopper on Letterman</a><span>1986 · 10 min</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/NjIhmzU0Y8Y?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/NjIhmzU0Y8Y/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Steve Jobs: a bicycle for the mind" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=NjIhmzU0Y8Y">Steve Jobs: a bicycle for the mind</a><span>1 min</span></figcaption>
-    </figure>
-  </div>
-  <ul class="links">
-    <li><a href="https://github.com/chrislgarry/Apollo-11">Apollo 11 guidance computer source</a><span>GitHub</span></li>
-    <li><a href="https://groups.google.com/g/comp.os.minix/c/dlNtH7RRrGA/m/SwRavCzVE7gJ">Linus announces Linux</a><span>comp.os.minix, 1991</span></li>
-    <li><a href="https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf">Reflections on Trusting Trust</a><span>Ken Thompson, 1984</span></li>
-    <li><a href="https://www.nokia.com/bell-labs/about/dennis-m-ritchie/chist.html">The Development of the C Language</a><span>Dennis Ritchie</span></li>
-    <li><a href="http://info.cern.ch/hypertext/WWW/TheProject.html">The first website</a><span>CERN, 1991</span></li>
-  </ul>
-  </div>
-  <div class="group">
-  <h3>Scuba diving</h3>
-  <div class="grid">
-    <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/PQjaLhbVRr0?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/PQjaLhbVRr0/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Dave Not Coming Back" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=PQjaLhbVRr0">Dave Not Coming Back</a><span>Bushman&#x27;s Hole, 270 m · 2005 · full film, 1 hr 35 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/cUXVXvRUllQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/cUXVXvRUllQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Masvidal over Askren in five seconds" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=cUXVXvRUllQ">Masvidal over Askren in five seconds</a><span>UFC 239 · 2019 · fastest KO in UFC history</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/mSJL57Gq2OQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/mSJL57Gq2OQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Last Breath" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=mSJL57Gq2OQ">Last Breath</a><span>Chris Lemons, 30 minutes without air · 2012 · trailer</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/CIXbZPHLv2o?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/CIXbZPHLv2o/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Sebastian Steudtner, 86 feet at Nazaré" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=CIXbZPHLv2o">Sebastian Steudtner, 86 feet at Nazaré</a><span>largest wave ever surfed · 2020</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/VbWOjyngYuQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/VbWOjyngYuQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Anderson Silva&#x27;s front kick on Vitor Belfort" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=VbWOjyngYuQ">Anderson Silva&#x27;s front kick on Vitor Belfort</a><span>UFC 126 · 2011 · 40 sec</span></figcaption>
     </figure>
     <figure class="like">
       <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/_-Kw5kAPSbk?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/_-Kw5kAPSbk/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Rescue" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
       <figcaption><a href="https://www.youtube.com/watch?v=_-Kw5kAPSbk">The Rescue</a><span>Thai cave divers · 2018 · trailer</span></figcaption>
     </figure>
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/4RDBJ91jS10?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/4RDBJ91jS10/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Five real diving accidents and what they taught" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/watch?v=4RDBJ91jS10">Five real diving accidents and what they taught</a><span>Dive SAGA · 15 min</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/djjWsQy9RgQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/djjWsQy9RgQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Backyard Ultra: Finding the limit" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=djjWsQy9RgQ">Backyard Ultra: Finding the limit</a><span>what the format is · 2020 · 55 min</span></figcaption>
     </figure>
-  </div>
-  <ul class="links">
-    <li><a href="https://en.wikipedia.org/wiki/Dave_Shaw_(diver)">Dave Shaw</a><span>Wikipedia</span></li>
-  </ul>
-  </div>
-  <div class="group">
-  <h3>Small things</h3>
-  <div class="grid">
     <figure class="like">
-      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/sBSQfchNqhE?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/sBSQfchNqhE/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Alex Karp doing push-ups on stage" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
-      <figcaption><a href="https://www.youtube.com/shorts/sBSQfchNqhE">Alex Karp doing push-ups on stage</a><span>Palantir CEO · 5 sec</span></figcaption>
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/XdOzbM_7GMI?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/XdOzbM_7GMI/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Nose in under two hours" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=XdOzbM_7GMI">The Nose in under two hours</a><span>Honnold and Caldwell · 2018 · time-lapse</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/LnzuMJLZRdU?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/LnzuMJLZRdU/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Hello, world from scratch on a 6502" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=LnzuMJLZRdU">Hello, world from scratch on a 6502</a><span>Ben Eater · 2019 · 27 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/EY6q5dv_B-o?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/EY6q5dv_B-o/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Ken Thompson interviewed by Brian Kernighan" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=EY6q5dv_B-o">Ken Thompson interviewed by Brian Kernighan</a><span>VCF East · 2019 · 1 hr 3 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/mSJL57Gq2OQ?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/mSJL57Gq2OQ/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Last Breath" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=mSJL57Gq2OQ">Last Breath</a><span>Chris Lemons, 30 minutes without air · 2012 · trailer</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/BvWB7B8tXK8?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/BvWB7B8tXK8/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Joe Rogan Experience #1212" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=BvWB7B8tXK8">Joe Rogan Experience #1212</a><span>PowerfulJRE · 2018 · 2 hr 17 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/6iM6M_7wBMc?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/6iM6M_7wBMc/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Alex Honnold on free soloing El Capitan" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=6iM6M_7wBMc">Alex Honnold on free soloing El Capitan</a><span>TED · 2018 · 11 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/vyJ_hhninDw?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/vyJ_hhninDw/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Strengthen your mind" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=vyJ_hhninDw">Strengthen your mind</a><span>Big Think · 2017 · 8 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/78I9dTB9vqM?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/78I9dTB9vqM/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Impact Theory with Tom Bilyeu" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=78I9dTB9vqM">Impact Theory with Tom Bilyeu</a><span>2017 · 57 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/xQ_IQS3VKjA?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/xQ_IQS3VKjA/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Danny MacAskill: The Ridge" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=xQ_IQS3VKjA">Danny MacAskill: The Ridge</a><span>Isle of Skye · 2014 · 7 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/XvDZLjaCJuw?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/XvDZLjaCJuw/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The UNIX System: Making Computers Easier to Use" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=XvDZLjaCJuw">The UNIX System: Making Computers Easier to Use</a><span>Bell Labs film · 1982 · 23 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/FHtvDA0W34I?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/FHtvDA0W34I/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Felix Baumgartner jumps from 128,000 feet" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=FHtvDA0W34I">Felix Baumgartner jumps from 128,000 feet</a><span>Red Bull Stratos · 2012</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/yJDv-zdhzMY?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/yJDv-zdhzMY/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="The Mother of All Demos" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=yJDv-zdhzMY">The Mother of All Demos</a><span>Douglas Engelbart · 1968 · 1 hr 40 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <div class="frame"><iframe srcdoc="&lt;style&gt;*{margin:0}html,body{height:100%;overflow:hidden;background:#1b1b19}a{display:block;height:100%;position:relative}img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.82;transition:filter .35s,opacity .35s}a:hover img,a:focus img{filter:none;opacity:1}b{position:absolute;left:14px;bottom:12px;width:42px;height:42px;border-radius:50%;background:rgba(252,252,250,.92);display:grid;place-items:center}b:after{content:&#x27;&#x27;;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #1b1b19}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/uQITWbAaDx0?autoplay=1&amp;rel=0&#x27;&gt;&lt;img src=&#x27;https://i.ytimg.com/vi/uQITWbAaDx0/hqdefault.jpg&#x27; alt=&#x27;&#x27;&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;" title="Guillaume Néry, base jump into Dean&#x27;s Blue Hole" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe></div>
+      <figcaption><a href="https://www.youtube.com/watch?v=uQITWbAaDx0">Guillaume Néry, base jump into Dean&#x27;s Blue Hole</a><span>on one breath · 4 min</span></figcaption>
+    </figure>
+    <figure class="like">
+      <a class="frame img" href="likes/margaret-hamilton.jpg"><img src="likes/margaret-hamilton.jpg" alt="Margaret Hamilton next to the Apollo guidance code" loading="lazy"></a>
+      <figcaption>Margaret Hamilton next to the Apollo guidance code<span>MIT, 1969</span></figcaption>
     </figure>
   </div>
   <ul class="links">
+    <li><a href="https://groups.google.com/g/comp.os.minix/c/dlNtH7RRrGA/m/SwRavCzVE7gJ">Linus announces Linux</a><span>comp.os.minix, 1991</span></li>
+    <li><a href="http://info.cern.ch/hypertext/WWW/TheProject.html">The first website</a><span>CERN, 1991</span></li>
+    <li><a href="https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf">Reflections on Trusting Trust</a><span>Ken Thompson, 1984</span></li>
+    <li><a href="https://www.instagram.com/davidgoggins/">Instagram</a><span>@davidgoggins</span></li>
+    <li><a href="https://www.instagram.com/mark.dowdle/">Instagram</a><span>@mark.dowdle</span></li>
+    <li><a href="https://mark-dowdle.com/">mark-dowdle.com</a><span>Backyard ultras, Arrowhead 135</span></li>
+    <li><a href="https://github.com/chrislgarry/Apollo-11">Apollo 11 guidance computer source</a><span>GitHub</span></li>
+    <li><a href="https://www.nokia.com/bell-labs/about/dennis-m-ritchie/chist.html">The Development of the C Language</a><span>Dennis Ritchie</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Dave_Shaw_(diver)">Dave Shaw</a><span>Wikipedia</span></li>
+    <li><a href="https://paulgraham.com/articles.html">Paul Graham&#x27;s essays</a><span>paulgraham.com</span></li>
+    <li><a href="https://patrickcollison.com/">Patrick Collison</a><span>patrickcollison.com</span></li>
+    <li><a href="https://blog.samaltman.com/">Sam Altman&#x27;s blog</a><span>blog.samaltman.com</span></li>
     <li><a href="https://www.jackfriks.com/keep-going">keep going</a><span>Jack Friks · memes, pictures and quotes for hard days</span></li>
   </ul>
   </div>
 </section>
 <!-- ============ /LIKES ============ -->
 
+<!-- ============ ESSAY: borrowed-growth ============ -->
+<article id="borrowed-growth" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Borrowed growth</p>
+  <p>A company has no growth rate of its own. It inherits one from whoever it sells to, and most founders choose whose growth to inherit without noticing they have made a choice.</p>
+  <p>There are two kinds of customer. The first is the enterprise, which already has volume, and buys from you because you reached the right 3 people and survived procurement. The second is the startup, which has almost no volume, and buys from you because you were there and the price was low. The usual way to compare them is deal size against deal count. I think the better comparison is what you get paid in.</p>
+  <p>The enterprise pays you in cash for revenue that already exists. The startup pays you in a share of revenue that does not exist yet. In finance that second thing is an option, a contract that costs little today and pays only if your customer grows. When you sell to startups you buy a thousand small options, and the odd part is that you pay the premium, not the customer. The free tier, the usage price that rounds to zero, the support ticket from a 3-person company, that is the premium. You pay it in advance for the right to collect later.</p>
+  <p>Look at who carries the risk and the two models swap places. The enterprise buyer carries it. They pay up front for a product that may not work, so they insure themselves with months of procurement, a security review, and a pilot. Procurement is the price of insurance, and whoever buys the insurance holds the risk.</p>
+  <p>The startup vendor holds it instead. It serves 1,000 companies at a loss and waits to see which 30 survive. Nobody runs a security review on a free tier. The customer risks nothing, and the vendor has already accepted that most of the money will never arrive.</p>
+  <p>Now the part that makes this a different kind of company and not just a different price list. If your customers grow 100% a year and your bill scales with their usage, you grow 100% a year without a single new sale. Your growth rate is a weighted average of your customers&#x27; growth rates, weighted by each one&#x27;s share of your revenue. The enterprise vendor&#x27;s growth is its own sales headcount times its own close rate, which is linear in effort. The startup vendor&#x27;s growth is whatever its customers did this year, which is linear in nothing it controls.</p>
+  <p>Stripe opened to anyone with an API key in September 2011, and a fraction of those keys belonged to companies that became very large. Stripe never sold to those companies. It was already there when they grew.</p>
+  <p>Which means the product decision, for a startup vendor, is mostly a decision about which cohort. Supabase in 2020 picked the people who would otherwise have used Firebase. The agent infrastructure companies of the last 2 years picked the belief that software agents will multiply. Each of those is a bet on a wave, placed before the wave is visible, and the product is a claim on the wave. If the cohort is wrong, no product quality saves you, because your customers die and take your options with them. If the cohort is right, an average product still rides.</p>
+  <p>This is also why early and wrong look the same for 3 years. In the enterprise model early is wrong, because the budget does not exist yet and no amount of relationship creates it. In the startup model early is the only time the option is cheap. The vendor that waits until the wave is visible buys in at full price, against a crowded market, from customers who already have someone.</p>
+  <p>Then the option pays, and this is the part that founders who envy Stripe forget. The day a startup customer becomes an enterprise, your bill becomes one of their largest lines, with its own slide in the board deck. At the end of 2016 Uber was 17% of Twilio&#x27;s revenue. In May 2017 Twilio told investors that Uber was moving part of that volume in house and part to other vendors. The share price fell by about a quarter the next day. The customer you bet on, the one that paid, is the one that renegotiates.</p>
+  <p>So the startup path does not avoid the enterprise sale. It arrives at the enterprise sale from the inside, years in, with your code in their stack, and that is the prize. The enterprise vendor buys the relationship with 2 years of dinners. The startup vendor got it free, because it was useful before procurement existed.</p>
+  <p>Each path has a trap that looks like good sense. The enterprise trap is comfort. A founder who came from a large company already knows the buyers, and selling to people you know feels like judgement. The usual defence is that the revenue is real and a founder should take real revenue over a story. That is a fair reason, and it is often not the actual one. The actual one is that nobody could name a wave with any confidence.</p>
+  <p>The startup trap is the belief that it is the lazy path, revenue that goes up while you sleep. That is wrong in a specific way. The work does not disappear. It moves, from selling to picking, and picking is the harder kind of work because nothing tells you for 3 years whether you picked right. The enterprise vendor gets a signed contract as proof it was correct. The startup vendor gets a usage graph that is flat until it is not.</p>
+  <p>I do not think the answer is to switch. A company can hold both, and most that last end up with both, because the option, when it pays, turns into a stock. The answer I would give is to know which one you hold, and to never price one like the other. If you sell the stock, you are in the relationship business, and the count to watch is how many right people take your call. If you hold the options, you are in the picking business. The count to watch there is the survival rate of the cohort you chose, which you can only read in arrears.</p>
+  <p>The test is a single extra column on the customer list. Next to each customer, write whether you are paid in cash or in a share of what has not happened yet. For the second kind, write what you are betting will happen.</p>
+  <p>The second column is usually the short one, a few guesses about which small companies will be large in 3 years. Those few lines are the only part of the list that can change what the company is worth. They deserve more attention than the contracts.</p>
+</article>
+
 <!-- ============ ESSAY: unmetered-day ============ -->
 <article id="unmetered-day" class="page essay">
   <a class="back" href="#home">Anirudha Kulkarni</a>
   <h2>Essay</h2>
   <p class="title">The unmetered day</p>
-  <p class="meta">September 2026</p>
   <p>Most of what gets called hard work is long work, and the two are almost unrelated.</p>
-  <p>I know this because I have done a great deal of the long kind. On the trading floors I worked on in India the day is 13 hours, and the day is not a metaphor. You arrive before the exchange opens, you leave after it closes and the post-trade jobs have run, and the hours in between are sitting and coding and trying one more thing. Nobody asked me to do this. It was the shape of the room, and I fitted the room.</p>
+  <p>I know this because I have done a great deal of the long kind. On the trading floors I worked on, the day is 13 hours, and the day is not a metaphor. You arrive before the exchange opens, you leave after it closes and the post-trade jobs have run, and the hours in between are sitting and coding and trying one more thing. Nobody asked me to do this. It was the shape of the room, and I fitted the room.</p>
   <p>For a long time I believed those hours were the work. If a week had 65 of them it had been a good week. This is the first thing I want to take apart, because I think a lot of people who consider themselves hard workers are actually counting the same wrong thing I was.</p>
   <p>Here is the wrong thing. Hours are the only quantity that is always available to be measured. Progress on a hard problem is not visible day to day, quality is not visible until someone else reads the code, and whether the thing you built mattered will not be known for a year. Hours are visible at 9pm when you look at the clock. So the ambitious person, who badly wants a number to be going up, picks the one number that can be read off the wall. I picked it. It felt like rigour and it was closer to superstition.</p>
   <p>Compare a different kind of day. In my first year at college I joined the startup club and tried everything, and nothing worked, and the reason nothing worked was not effort. It was that I had no skills yet. You cannot outwork the absence of a skill. The following year I did much less and got much further, because the less was aimed at one thing, which was becoming a person who could actually build the things I kept trying to build. Those months had no meter on them. Nobody saw them. There was no clock on the wall reading 13.</p>
@@ -471,7 +444,6 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
   <a class="back" href="#home">Anirudha Kulkarni</a>
   <h2>Essay</h2>
   <p class="title">Good enough is a decision somebody makes</p>
-  <p class="meta">September 2026</p>
   <p>Every piece of work has a point where somebody says it is done, and that person is never the work.</p>
   <p>We talk about standards as if they were properties of things. A high-quality codebase, a rigorous paper, a clean result. But a codebase does not have a standard. Someone looked at it and decided to stop. The standard is the stopping rule, and the stopping rule lives in a person. Which means the entire question of quality reduces to a social one: who is allowed to say not yet, and will they say it when it costs them.</p>
   <p>Steve Jobs used to tell a story about his father, who built fences and cabinets, and who insisted on finishing the back of the fence and the inside of the drawer as carefully as the front. Nobody would see the back. The father&#x27;s answer was that he would know. People quote this as a story about craftsmanship. I read it as a story about who the inspector is. In the absence of a customer who will check, the father appointed himself, and held the appointment.</p>
@@ -494,7 +466,6 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
   <a class="back" href="#home">Anirudha Kulkarni</a>
   <h2>Essay</h2>
   <p class="title">Nobody remembers your great-great-grandfather</p>
-  <p class="meta">September 2026</p>
   <p>Name one thing your great-great-grandfather did. Not his name, which you may know. A thing he did, a fight he had, something he built or lost or was proud of.</p>
   <p>Almost nobody can. Four generations is roughly a hundred years, and a hundred years is enough to erase a life completely, including from the memory of the people who exist only because it happened. His hardships are gone. His enemies are gone, and so is whatever they fought about. If he did something extraordinary, you do not know what it was. If he did nothing, the result is identical.</p>
   <p>That is the forward half of the argument, and it is the half everyone knows. In a hundred years everyone you are trying to impress will be dead, everyone you envy will be dead, everyone you cannot stand will be dead, and nobody will remember any of it. People usually take this as a reason to relax. Nothing lasts, so why strain.</p>
@@ -516,7 +487,6 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
   <a class="back" href="#home">Anirudha Kulkarni</a>
   <h2>Essay</h2>
   <p class="title">Ambition is a recruiting problem</p>
-  <p class="meta">September 2026</p>
   <p>Nobody with a large ambition can execute it alone, which means every ambition is, underneath, a list of people you have not yet persuaded.</p>
   <p>I want to start there because the usual conversation about ambition is about the size of the want. How big is your vision, how much do you want it, are you thinking big enough. Paul Graham&#x27;s essay on great work says ambitious people are, if anything, already too conservative about it. I agree with him and I think the framing still points the wrong way, because it treats ambition as a quantity inside one person. In practice it is a headcount. The moment your ambition exceeds what one person can do in a lifetime, and any ambition worth the name does, the entire problem becomes who else is going to do it with you, and why they would.</p>
   <p>Here is the first time I understood this, though I did not have the words then.</p>
@@ -540,7 +510,6 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
   <a class="back" href="#home">Anirudha Kulkarni</a>
   <h2>Essay</h2>
   <p class="title">Staying</p>
-  <p class="meta">September 2026</p>
   <p>Everything ever written against comfort was written by someone who had already left it, and you should discount the argument accordingly.</p>
   <p>I say this as one of those people. I walked out of a well-paid seat in a good firm and I have spent a fair amount of the time since telling friends who are still in similar seats that they should do the same. Some of them have listened. I am not sure I was right, and I am fairly sure my reasons for saying it were not the reasons I gave.</p>
   <p>So let me try to write the honest version, which has to start by taking comfort seriously as a thing a reasonable person might want.</p>
@@ -563,7 +532,6 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
   <a class="back" href="#home">Anirudha Kulkarni</a>
   <h2>Essay</h2>
   <p class="title">Two nodes and a thin wire</p>
-  <p class="meta">September 2026</p>
   <p>Two people working on the same hard thing are two computers joined by a very thin wire, and almost every failure between them is a failure of the wire, not of the computers.</p>
   <p>I started thinking about it this way when my co-founder and I ended up on opposite sides of the planet for a few months. Each of us had a full day of information the other did not: who we had met, what they had said, what had broken, what we now believed. Each of us also had a great deal of compute. What we did not have was bandwidth. A handful of messages a day, a call when the time zones allowed, and a shared channel that was always slightly behind. The wire was the constraint. Everything else was fine.</p>
   <p>Once you see it as a wire, the rules for using it stop being manners and become engineering.</p>
@@ -580,90 +548,123 @@ hr{border:0; border-top:1px solid var(--rule); margin:2.4rem 0}
   <p>Two people is the smallest team that can do something large and the only team where the wire is a single strand. Everything the two of you will build has to fit through it. It is worth knowing what it can carry, and treating every message as though the capacity were real, because it is.</p>
 </article>
 
-<!-- ============ NOTES ============ -->
-<section id="notes" class="page">
+<!-- ============ MEDIUM: m-regrets ============ -->
+<article id="m-regrets" class="page essay">
   <a class="back" href="#home">Anirudha Kulkarni</a>
-  <h2>Notes</h2>
-  <p class="lede">Shorter things. Half-formed on purpose.</p>
-  <ul class="plain">
-    <li>A verdict machine can only refute you. Corroborated is not proved; the strength of a claim is how easy it would be to kill.</li>
-    <li>Generated code reads like a plan that has never met friction. The design answer is to reintroduce friction on purpose.</li>
-    <li>Creativity is making the whole more than its pieces alone.</li>
-    <li><i>[More as they come.]</i></li>
-  </ul>
-</section>
+  <h2>Essay</h2>
+  <p class="title">Regrets</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/regrets-ae5e70d951aa">Medium</a>. First published February 2024.</p>
+  <p>Just ask: What is the best possible action given my current situation?</p>
+  <p>Worrying about what could have been possible is suboptimal. The only thing you can do now is take action. Worrying will not change the situation. You could learn from the bad outcomes and make sure not to repeat them. But it is very easy to get drowned in unproductive worrying. It is a simple thought, but it took me a long time to internalize. Do not live in the past. Learn from it. Plan for the future. Focus on the present.</p>
+  <p>Initially, I wrote a lengthy article with examples and a flow of thoughts. However, I found that this single question was the best way to conclude everything.</p>
+</article>
 
-<!-- ============ QUESTIONS ============ -->
-<section id="questions" class="page">
+<!-- ============ MEDIUM: m-learned-helplessness-to-prioritization ============ -->
+<article id="m-learned-helplessness-to-prioritization" class="page essay">
   <a class="back" href="#home">Anirudha Kulkarni</a>
-  <h2>Questions</h2>
-  <p class="lede">Things I do not know and am actively trying to. If you have a real answer, write to me.</p>
-  <ul class="plain">
-    <li>What does it mean for a machine to have verified its own work, as opposed to having argued for it?</li>
-    <li>Why do some competitive games stay legible for decades while others collapse into politics within a few years?</li>
-    <li>What can a firm with unlimited money still not buy?</li>
-    <li>Where is the line, in any field, below which more expertise makes prediction worse?</li>
-  </ul>
-</section>
+  <h2>Essay</h2>
+  <p class="title">Learned helplessness to prioritization</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/learned-helplessness-to-prioritization-350e3a9d3ce3">Medium</a>. First published February 2024.</p>
+  <p>Failure in the growth phase could lead you to learn helplessness. It’s a belief that your efforts do not matter. Whatever you do is either bound by luck or you were just not made for it.</p>
+  <p>It could manifest as lacking confidence in goals. With some people, I observed a sense of not doing things because of helplessness due to some past experiences. One classical example I find interesting is being mathematically challenged in college due to some past experiences and trauma with the subject. On the other hand, there is another behavior associated with helplessness. I had (and have to a certain extent) a habit of jumping at each and every opportunity. Pursuing every task. This could appear due to being excessively motivated, but this is helplessness in disguise. There is a difference between working hard and working hard towards every opportunity. The smokescreen of putting efforts in seems counterintuitive to being helpless.</p>
+  <p>I find a rather healthy approach, essentialism. I would prefer to have confidence in the opportunities that I am going to pick up. Being choosy about what to do and what not to do.</p>
+  <p>I used to jump on each and every opportunity I used to get for the second, third, fourth, and some portion of the fifth year. In the first year, I was all hyped up about startups. I had internalized zuck to start working on my startup in the first year and then drop out eventually. It was mostly because of the hype associated with it. In the end, I screwed academics, not to mention the startup, which never took off. I still remember a friend of mine justifying me getting out of the startup club because I don’t have the required skill. Even though I did not internalize the reasoning, I ended up quitting. I now understand the importance of questioning your actions. Even in my fifth year, I had the same reasoning for choosing a job over a startup.</p>
+  <p>Anyway, this led me to develop a sense of helplessness about my academic abilities. For the third and fourth years, I went head-on with each and every opportunity I got. Always doing courses, doing internships, attending all talks and workshops, and working on getting the next big thing. I did end up scoring straight As, getting fancy internships and useful tech skills, I regret the motivation behind doing so. I wasted many of those opportunities because I was not able to prioritize between impactful and not-so-impactful goals. I could not prioritize between doing something to its full extent and saying no to less important things. For example, I took around 15 full courses on Coursera. Most of them are very niche and are pretty much useless unless I want to be a dev-ops guy at Google. On the other hand, I did not spend more than an hour on my foreign exchange application, which I believe was a very important opportunity. At some point, I was working on three internships simultaneously because I did not want to choose between a research intern, an SDE intern, and a fancy crypto/blockchain intern.</p>
+  <h3>Organized chaos, prioritizing in unknown</h3>
+  <p>I first heard about this term during my stay at Optiver. I find it pretty interesting. Life is all good when you have a plan. You could prioritize and choose only the best outcome, and so on. But how do you deal with uncertainty? What do you do when you don’t know what you want? What do you do when you don’t know the possibilities and challenges of the future? Organized chaos suggested having a plan with as specific as possible a detailed goal. Create a period of organized chaos. For example, if you have a big project, break it into small milestones, be very detailed while specifying them, and then go bananas in between. Explore everything within the boundaries you have set. Have chaos in a very organized and structured way. In the scope of previous discussions, let’s say I have a milestone, say, I want to improve my strength. I find running a good proxy for strength. I plan to run a half-marathon (21 km) in 4 months. On day 1, I could barely run 2 km without collapsing. I set up my milestones at 5, 10, 12, 15, 18, and 20 km, distributed over 4 months. Within the milestones, I kept the freedom to explore all the tips, hacks, and tricks I found on Reddit and YouTube. Those gel insoles, which could help you run for a longer duration? Try them. Does having a pre-workout shake help? Sure, try it. BCCA tablets? Why not. Some of them worked, but most did not. I am at the 10 km mark since I started 25 days ago. More to go.</p>
+  <p>Experimenting with a ton of stuff while not diverting from the goal was my takeaway from organized chaos. I learn a lot from chaos, but it is very easy for me to get diverted into something way away from the original aim. In this aspect, organized chaos helped me the most. My earlier approach would have easily led me to the hellhole of researching niche supplements for the body and not running after one or two weeks after getting overwhelmed with information.</p>
+  <p>In the end, I am currently obsessed with working on my past mistakes and burdens, which I am carrying over, knowingly or unknowingly. The inability to prioritize was one of the big flaws I had (and still have). Researching, talking to psychiatrists, and reading on this topic immensely changed my perspective. If you want to read more, you could try the following books: The 4-Hour Workweek by Tim Ferriss, Essentialism by Greg McKeown, Power of Now by Eckhart Tolle, and the 7 Habits of Highly Effective People by Stephen Covey.</p>
+</article>
+
+<!-- ============ MEDIUM: m-thoughts-on-goal-achieving ============ -->
+<article id="m-thoughts-on-goal-achieving" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Thoughts on goal-achieving</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/thoughts-on-goal-achieving-adad07656826">Medium</a>. First published January 2024.</p>
+  <h3>Motivation as a go-to tool</h3>
+  <p>For most of my working life, motivation was my go-to mechanism for goal-achieving. You aim, plan, and then execute. If you don&#x27;t feel like doing something, you push yourself. But eventually, I observed that motivation is not feasible for long-term goals.</p>
+  <p>In the past, I have been motivated to pursue some goals. I will be very motivated and full of energy when I start a project. But once I get over the obsession, I will start to procrastinate. I will try to push myself with some motivational literature, books, blogs, and videos. It will work for a short while. But next time, when procrastination kicks in, I will try to find something else to work on. My brain would come up with endless excuses not to do it. And in the end, I would simply avoid it. I have an endless list of projects I took on to work on, photography skills, exercises, meditation, but left incomplete.</p>
+  <p>Motivation is bursty. Motivation comes in spikes and goes. Motivation is not sustainable.</p>
+  <h3>Having a system instead of conscious efforts</h3>
+  <p>Taking from the book thinking fast and slow, we have two patterns in which we behave. One is with conscious efforts, when we can think rationally and are aware of our actions, each action requires effort. The second is autopilot mode, when our subconscious mind takes over and is effortless.</p>
+  <p>Having positive systems where you take actions without making conscious efforts is an optimal strategy. Advertisers nudge you towards certain purchases. “Opt for marketing” is generally enabled by default on most sign-up pages. Most do not make the effort to consciously uncheck the box or even notice it.</p>
+  <p>For me, going to the library is one such positive system. Once I go to the library, I usually stay for a productive session and cannot sleep. On the other hand, staying in a hostel room is a full-proof system to fall asleep. Staying in the room leads to sneaking into bed after a while, which then leads to sleeping or, even worse, doomscrolling. Opening Instagram reels or YouTube shorts is one such system that could easily capture someone for hours.</p>
+  <h3>The power of habits and routines</h3>
+  <p>Systems are created with habits. The book “Atomic Habit” is a great read and explains why habits shape most of our lives. Habit creation requires some conscious effort and is slow. It takes some weeks to start a new habit and for it to become a routine. Once a routine is created, an autonomous system is built that can work wonders towards a particular goal.</p>
+  <p>I used to struggle with starting my day early. I noticed that even if I used to wake up early, I used to sleep again. This cycle would lead me to wake up 4 to 5 hours later than a normal wake-up time. I started with the habit of brushing my teeth immediately after waking up. Once I brush my teeth, it becomes hard to fall asleep easily. This habit nudges me to work on something in the morning and leads to much more productive day.</p>
+  <h3>On a microscale, the role of emotions</h3>
+  <p>We have rational thinking, which could be overtaken by emotions.</p>
+  <p>Thinking rationally is hard when emotions are in charge. The brain plays tricks with random bullsh*t logic and tries to convince itself.</p>
+  <p>Some time back, I started to take cold showers. I read about the benefits, and I was convinced enough that it would help me stay disciplined, have focus for an extended period of time, and improve my metabolism in general. The first few days were great; there was a sense of excitement. However, one day, some thoughts started to pop up. “I could stay focused without the showers, too.” “Why hate me first thing in the morning?” “I slept late at night, so I could skip the day.”</p>
+  <p>My personal favorite rule to avoid such scenarios is the “5-minute rule.” When you are faced with something unpleasant, you set a goal to work for just 5 minutes. After that, you make a decision if you want to still avoid it. This rule works wonders for me. The initial delta to start something is the hardest part. Once I start to work, the rest is effortless. Our brain associates the initial pain with the entire duration, hence the resistance.</p>
+  <p>Motivation follows action, not the other way around.</p>
+  <p>With my limited exposure to religious texts, I find the way religions have survived interesting. I do not agree with some of the values religions advocate, but the way in which religions achieve these values is noteworthy. Religions require you to have faith in their teaching. Do your duties. Do not worry about the outcomes; just do what is required. Trust the process. Have faith.</p>
+  <p>Once you set the goal, do not question the process on the spur of your emotions. Show faith in the systems you created when you were rational. Take that leap of faith.</p>
+  <h3>Exposure and numbing the emotions</h3>
+  <p>I found that sometimes fear is one of the emotions that comes with achieving a goal. Fear could appear in the form of procrastination. I used to procrastinate on an aspect of my life. Taking psychotherapy led me to an interesting observation.</p>
+  <p>We sometimes procrastinate because of some trauma or fear associated with it. It could be due to very small actions, incidents, or behaviors in the past that have stayed inside you for a long time.</p>
+  <p>One of the ways to tackle fear is through continuous and incremental exposure. Continuous exposure helps to understand and look at fear from a rational perspective. This is the most helpful way I have found to tackle any fear. Nothing else will help more than taking action. Planning to do something is not doing it; thinking about something is not doing it; stressing over it is not doing it; it&#x27;s the action that does the magic.</p>
+  <p>PS: I plan to write more.</p>
+</article>
+
+<!-- ============ MEDIUM: m-taking-a-different-route ============ -->
+<article id="m-taking-a-different-route" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">Taking a different route</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/taking-a-different-route-16c3e0abfabf">Medium</a>. First published June 2022.</p>
+  <p>This summer I have decided to take a different route than usual. I cancelled a highly paid intern for an unpaid intern. I cancelled another intern at CMU. This time I am choosing on skills over money/tags.</p>
+  <p>Instead of multiplexing on 3 different tasks. I am choosing to focus on just a single one.</p>
+  <p>I would have called myself stupid if I had shown this decision to my 2nd year self or even to my 2 months earlier version.</p>
+  <p>I am slowing down. Going through the dip. After so many advices I am finally trying to focus on single task than multiplexing. I still feel bad for not going for the other two. I can easily multiplex at least one of them. At least let me take the money?</p>
+  <p>It’s a hard choice. The idea is focussing on one task should give more benefits than combined. Honestly I am bit skeptical about having dependence on single thing. What if it fails? What if things don’t work out? Shouldn’t I keep some backup? But I have never tried not multiplexing. How would I know the other side before trying it out?</p>
+  <p>I am taking the leap of faith. If things won’t work out as I expect then let it be. Maybe having a backups made me feel too much secure. I will be insecure this time. I will be in uncertainty. If this fails then I won’t have another option to fall back.</p>
+  <p>Let’s see how it goes.</p>
+  <p>EDIT: It did turn out lot better than I could have imagined.</p>
+</article>
+
+<!-- ============ MEDIUM: m-how-i-deal-with-overthinking ============ -->
+<article id="m-how-i-deal-with-overthinking" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">How I deal with Overthinking</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/how-i-deal-with-overthinking-acc2c3e853fa">Medium</a>. First published November 2021.</p>
+  <p>Writing frequently helps to free out things.</p>
+  <p>I tend to overthink a lot. Overthinking consumes a lot of energy, time and resources yet achieves nothing. I can’t recall countless hours I spent overthinking. I found myself struggling into the endless loops of thinking. During exams. During late night self talks. During crisis. And its hard to get outside. Its hard to get clarity.</p>
+  <p>Writing helps in getting clarity. The Feynman Technique goes in the similar direction. It goes as, When you want to learn something, best way is to explain it to someone else. One, you get a lot of clarity in trying to prepare while presenting. You will learn a lot in anticipating what the other person might ask you. Two, there will be your respect associated with it. You will work a lot more when it comes to cast desired impression on someone.</p>
+  <p>Also, learning is an active process. It does not matter the format in which you receive information. Since the introduction of mass communication things like radios, television and then internet, we did not see massive change in learning process. Yes, the education became more accessible than earlier. More people got access to high quality literature. But those who already had access to did not change much.</p>
+  <p>Seeing a animation vs seeing picture with a description does not make difference in your test score. Why? Because learning happens when you put efforts. Seeing image with description forces you to visualize animation by putting your efforts and that’s what helps you understand. Its not about the destination but about what you become in the process.</p>
+  <p>This being said, writing helps you to get into the process of actively learn from your thoughts. Writing helped me during some tough decisions, during seemingly hard problems in exams. I strongly urge you to try this. Hope that helps anyone reading(?) this post.</p>
+</article>
+
+<!-- ============ MEDIUM: m-people ============ -->
+<article id="m-people" class="page essay">
+  <a class="back" href="#home">Anirudha Kulkarni</a>
+  <h2>Essay</h2>
+  <p class="title">People</p>
+  <p class="meta">Imported from <a href="https://4n1rudh4.medium.com/people-9724f00ead00">Medium</a>. First published November 2021.</p>
+  <p>People are people. Living people. People with feelings, self-respect, ambition. People want to be treated with respect, liked, given attention.</p>
+  <p>People aren’t a thing whom you can “win” or “earn” or “achieve”. You can’t impress everyone except worsen your impression in an attempt to to do so.</p>
+  <p>To be in a group increases survival chances of the group as a whole and species survives. This evolutionary pressure made us social animal. Hard wired with an objective to be in a group. To be a part of the group. Not to be different from group. Accepted by the group.</p>
+  <p>But we have evolved beyond a point, that we don’t need such pressures. Our efforts to remain in the group costs us our attention, energy and time from things that matters and leaves us with pain when the group rejects you.</p>
+  <p>You are unique. Don’t pressurize yourself to do things that you don’t like. Don’t force yourself to get attention that will increase jealousy and envy. Couple of best friends are much better than room of friends. Circle which understands you. With whom you are comfortable.</p>
+  <p>It’s okay to be different. It’s okay to not being liked by everyone. It’s okay to be not okay. Enjoy your own company. Spend time with yourself. Discover your true self. Don’t be too harsh on yourself in pursing illusions. The world is too large to be impressed on individual basis. Impress the world with your actions. Do what you like. Do it to the best. Greatness doesn’t need audience. It just needs doing what you love to the best.</p>
+</article>
 
 <!-- ============ ADVICE ============ -->
 <section id="advice" class="page">
   <a class="back" href="#home">Anirudha Kulkarni</a>
-  <h2>Advice</h2>
-  <p class="lede">Two audiences I feel qualified to address, and a few rules for anyone.</p>
-  <p><strong>If you are a student from a small town.</strong> Not knowing your percentile is a resource. Spend the years before the first comparison arrives working as if the comparison did not exist. It will arrive soon enough and it will prune you; the pruning is easier to survive if there is more of you by then.</p>
-  <p><strong>If you are an engineer considering leaving a comfortable job.</strong> The question is not courage. It is sizing. Overbetting is punished without bound and underbetting is merely slow, so work out the most you can lose without the loss being permanent, and bet exactly that.</p>
-  <p><strong>For anyone.</strong></p>
-  <ul class="plain">
-    <li>Get things to exist. Then optimize.</li>
-    <li>Focus on the main goals.</li>
-    <li>Talk in outputs, not efforts. Effort is easy to mistake for progress. Always outcomes.</li>
-    <li>You are ten bad attempts away from being good. The secret is minimal viable iterations: each attempt has to meet a minimal standard, and there have to be at least ten of them. The iterations must be external, not internal. If you want to get good at videos, publish ten videos. Do not rework the same video ten times. So the real goal becomes making each attempt as short as possible while keeping it viable: a real attempt, not a fake one.</li>
-  </ul>
+  <h2>Principles</h2>
+  <ol class="principles">
+    <li>Ship, then improve. Get things to exist, then optimize. Ten bad attempts come before good, so keep each attempt short but real, and put it out. Publish ten videos. Do not rework one video ten times. Talk in outputs, not efforts.</li>
+    <li>Aim high. Set ambitious goals, ones with less than a 10% chance of success. Do not settle for mediocre things.</li>
+    <li>Nothing lasts, so go nuts. Everyone I love or hate will be gone in 100 years. Embarrassment and fear are states of mind, and nobody will remember the failure. Learn from it and do not get demotivated. Do not worry about your reputation. You have none. Do great things, do what you love, and live life on extreme mode. Comfort kills, and there is no fun in comfort.</li>
+    <li>Work with smart people. They raise the bar. Align on values first, choose positive intent, and do not waste time on stupid things.</li>
+    <li>Creativity is making the whole more than its pieces alone.</li>
+  </ol>
 </section>
 
-<!-- ============ WORK ============ -->
-<section id="work" class="page">
-  <a class="back" href="#home">Anirudha Kulkarni</a>
-  <h2>Work</h2>
-  <p class="lede">The one page where facts are allowed to be facts. Dry by design. Bracketed items are for you to fill or delete.</p>
-  <div class="ledger"><table>
-    <tr class="group"><td colspan="2">Companies</td></tr>
-    <tr><td>2026</td><td>ByteAsk, co-founder and CEO. AI coding agent for C and C++ that proves its work. Y Combinator, Fall 2026.</td></tr>
-    <tr><td class="ph">[yr]</td><td>Quantbox. Low-latency trading systems. <span class="ph">[one dry line, non-compete safe]</span></td></tr>
-    <tr><td class="ph">[yrs]</td><td>Optiver, Amsterdam. Low-latency C++ on the trading floor. <span class="ph">[one dry line]</span></td></tr>
-
-    <tr class="group"><td colspan="2">Code</td></tr>
-    <tr><td>2026</td><td>ByteAsk/cli. The harness.</td></tr>
-    <tr><td>2026</td><td>C-CppBench. Benchmark of coding agents on C and C++.</td></tr>
-    <tr><td>2026</td><td>Embedded-MCP. Page-cited documentation retrieval for coding agents.</td></tr>
-    <tr><td class="ph">[yr]</td><td>Live-Snapshot. <span class="ph">[one line]</span></td></tr>
-    <tr><td class="ph">[19-24]</td><td><span class="ph">[Older repos with true GitHub timestamps. This is the real backdated record.]</span></td></tr>
-
-    <tr class="group"><td colspan="2">Writing elsewhere</td></tr>
-    <tr><td>2021-24</td><td>Medium, 4n1rudh4.medium.com. <span class="ph">[To be migrated here with true dates, or left in place.]</span></td></tr>
-    <tr><td>2025</td><td>"Typing Was Never the Bottleneck", LinkedIn. <span class="ph">[Canonical home to be decided.]</span></td></tr>
-
-    <tr class="group"><td colspan="2">Education and records</td></tr>
-    <tr><td class="ph">[yrs]</td><td>IIT Delhi, <span class="ph">[degree]</span>.</td></tr>
-    <tr><td class="ph">[yr]</td><td><span class="ph">[Optional single line for exam and contest results. This is the only place on the site they may appear.]</span></td></tr>
-  </table></div>
-  <p class="foot">
-    <a href="https://github.com/">GitHub</a>
-    <a href="https://x.com/4n1rudh4">X</a>
-    <a href="https://4n1rudh4.medium.com">Medium</a>
-  </p>
-</section>
-
-<!-- ============ NOW ============ -->
-<section id="now" class="page">
-  <a class="back" href="#home">Anirudha Kulkarni</a>
-  <h2>Now</h2>
-  <p class="meta" style="color:var(--muted);font-size:.92rem;margin-bottom:2rem">September 2026</p>
-  <p>In San Francisco for the Y Combinator batch. Building ByteAsk with a small team. Most days are spent making an agent prove its C++ to a compiler and a test suite rather than to a reviewer.</p>
-  <p>Reading the Gita properly for the first time, in a translation I will name on the bookshelf once I have finished it.</p>
-  <p>Six essays went up this month. After this, one a month at most.</p>
-</section>
 
 </main>
 
